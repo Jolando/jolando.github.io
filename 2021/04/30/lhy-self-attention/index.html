@@ -28,10 +28,10 @@
 <meta property="og:description" content="self-attention也是一个常见的neural network框架，用来解决输入是一组向量并且向量的个数是不确定的问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/self-attention.png#pic_center">
-<meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/attention_compute.pngpic_center">
+<meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/attention_compute.png#pic_center">
 <meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/attention_vector.png#pic_center">
 <meta property="article:published_time" content="2021-04-30T03:03:00.000Z">
-<meta property="article:modified_time" content="2021-04-30T08:43:17.890Z">
+<meta property="article:modified_time" content="2021-04-30T08:51:22.824Z">
 <meta property="article:author" content="YapingWu">
 <meta property="article:tag" content="self-attention">
 <meta property="article:tag" content="自注意力">
@@ -218,7 +218,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：16:43:17" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
+              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：16:51:22" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,7 +277,7 @@
 <li>加性运算（additive）。不对 $q$ 和 $k$ 做点乘，而是串联起来后使用 $tanh$ 函数激活。$a_{i}$ 和  $a_{j}$ 的相关度 $\alpha_{i,j} = tanh((a_{i}W_{q}) + (a_{j}W_{k}))$ 。</li>
 </ol>
 </blockquote>
-<p>在self-attention中，计算attention的步骤：<br><img src="./attention_compute.pngpic_center" alt="attention计算步骤"></p>
+<p>在self-attention中，计算attention的步骤：<br><img src="./attention_compute.png#pic_center" alt="attention计算步骤"></p>
 <ol>
 <li>计算 $query$，即当前向量与 $W_{q}$ 的乘积。计算方法 ：$q_{i} = W_{q}a_{i}$。</li>
 <li>计算 $key$，即其他向量与 $W_{k}$ 的乘积 。计算方法：$k_{j} = W_{k}a_{j},  k\in[1, n]$。</li>
@@ -302,7 +302,10 @@
 <p>【相关论文】</p>
 <ol>
 <li>self-attention各种变体的比较：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.04006">Long Range Arena: A Benchmark for Efficient Transformers_2011</a></li>
-<li>self-attention各种变体的介绍：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.06732">Efficient Transformers: A Survey</a><h1 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h1>到目前为止，self-attention中没有位置信息，它不知道每个向量在sequence中的位置是什么，也不知道两个向量间的距离是多少，但是<strong>位置信息有时候也是比较重要</strong>的。例如，在词性标注问题中，也许动词在句首出现的可能性比较低。<br>因此，当你认为你处理的问题中，位置信息比较重要，就需要用到<code>positional encoding</code>技术，也就是为每一个输入向量 $a_i$ 加上一个代表位置的向量 $e_i$ ，告诉self-attention位置的信息。<br>位置变量的设计：</li>
+<li>self-attention各种变体的介绍：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.06732">Efficient Transformers: A Survey</a></li>
+</ol>
+<h1 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h1><p>到目前为止，self-attention中没有位置信息，它不知道每个向量在sequence中的位置是什么，也不知道两个向量间的距离是多少，但是<strong>位置信息有时候也是比较重要</strong>的。例如，在词性标注问题中，也许动词在句首出现的可能性比较低。<br>因此，当你认为你处理的问题中，位置信息比较重要，就需要用到<code>positional encoding</code>技术，也就是为每一个输入向量 $a_i$ 加上一个代表位置的向量 $e_i$ ，告诉self-attention位置的信息。<br>位置变量的设计：</p>
+<ol>
 <li>人工设计（hand-crafted）。</li>
 <li>从数据中学习（研究中）。相关论文：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.09229">Learning to encode position for transformer with continuous dynamical model_2003</a></li>
 </ol>
@@ -314,13 +317,20 @@
 <p>相关论文</p>
 <ol>
 <li>Self-attention与CNN的关系： <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.03584">On the Relationship between Self-Attention and Convolutional Layers_1911</a></li>
-<li>Self-attention与CNN模型的比较：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.11929">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale_2010</a><h2 id="Self-attention-v-s-RNN"><a href="#Self-attention-v-s-RNN" class="headerlink" title="Self-attention v.s. RNN"></a>Self-attention v.s. RNN</h2>不同点：</li>
+<li>Self-attention与CNN模型的比较：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.11929">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale_2010</a></li>
+</ol>
+<h2 id="Self-attention-v-s-RNN"><a href="#Self-attention-v-s-RNN" class="headerlink" title="Self-attention v.s. RNN"></a>Self-attention v.s. RNN</h2><p>不同点：</p>
+<ol>
 <li>RNN在输出一个向量时需要考虑的向量必须在memory(记忆)中，Self-attention只需要一个<code>q</code>和一个<code>k</code>就可以了。</li>
 <li>RNN在处理输入的多个向量时不能并行处理，Self-attention可以并行处理所有输出。</li>
 </ol>
 <p>相关论文</p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.16236">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention_2006</a><h2 id="Self-attention-v-s-GNN"><a href="#Self-attention-v-s-GNN" class="headerlink" title="Self-attention v.s. GNN"></a>Self-attention v.s. GNN</h2>to do…<h1 id="Self-attention的其他应用"><a href="#Self-attention的其他应用" class="headerlink" title="Self-attention的其他应用"></a>Self-attention的其他应用</h1><h2 id="图像（image）处理"><a href="#图像（image）处理" class="headerlink" title="图像（image）处理"></a>图像（image）处理</h2>【相关论文】</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.16236">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention_2006</a></li>
+</ol>
+<h2 id="Self-attention-v-s-GNN"><a href="#Self-attention-v-s-GNN" class="headerlink" title="Self-attention v.s. GNN"></a>Self-attention v.s. GNN</h2><p>to do…</p>
+<h1 id="Self-attention的其他应用"><a href="#Self-attention的其他应用" class="headerlink" title="Self-attention的其他应用"></a>Self-attention的其他应用</h1><h2 id="图像（image）处理"><a href="#图像（image）处理" class="headerlink" title="图像（image）处理"></a>图像（image）处理</h2><p>【相关论文】</p>
+<ol>
 <li>Self-attention GAN。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.08318">Self-Attention Generative Adversarial Networks_1805 </a></li>
 <li>DEtection Transformer(DETR)。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.12872">End-to-End Object Detection with Transformers_2005 </a></li>
 </ol>

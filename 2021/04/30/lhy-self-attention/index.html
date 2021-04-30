@@ -23,21 +23,21 @@
   <meta name="description" content="应用场景self-attention也是一个常见的neural network框架，用来解决输入是一组向量并且向量的个数是不确定的问题。例如：  文本处理 语音识别 Drug discovery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="李宏毅机器学习学习笔记——自注意力机制">
-<meta property="og:url" content="https://yapingwu.github.io/2021/04/30/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:url" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/index.html">
 <meta property="og:site_name" content="YapingWu&#39;s Blog">
 <meta property="og:description" content="应用场景self-attention也是一个常见的neural network框架，用来解决输入是一组向量并且向量的个数是不确定的问题。例如：  文本处理 语音识别 Drug discovery">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210430090132607.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BfbWVtb3J5,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210430115935402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BfbWVtb3J5,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/lhy-self-attention/self-attention.png#pic_center">
+<meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/lhy-self-attention/attention_compute.png#pic_center">
 <meta property="article:published_time" content="2021-04-30T03:03:00.000Z">
-<meta property="article:modified_time" content="2021-04-30T04:01:38.987Z">
+<meta property="article:modified_time" content="2021-04-30T05:18:05.746Z">
 <meta property="article:author" content="YapingWu">
 <meta property="article:tag" content="self-attention">
 <meta property="article:tag" content="自注意力">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210430090132607.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BfbWVtb3J5,size_16,color_FFFFFF,t_70#pic_center">
+<meta name="twitter:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/lhy-self-attention/self-attention.png#pic_center">
 
-<link rel="canonical" href="https://yapingwu.github.io/2021/04/30/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+<link rel="canonical" href="https://yapingwu.github.io/2021/04/30/lhy-self-attention/">
 
 
 <script id="page-configurations">
@@ -193,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yapingwu.github.io/2021/04/30/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+    <link itemprop="mainEntityOfPage" href="https://yapingwu.github.io/2021/04/30/lhy-self-attention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：12:01:38" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
+              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：13:18:05" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,13 +268,13 @@ self-attention的输出有以下3种情况：<ol>
 <li><strong>逐个向量处理</strong>。这种方法的缺陷是，它无法利用序列的上下文信息，全连接网络对于任意位置<code>saw</code>的词性预测结果必然是一样的。</li>
 <li><strong>考虑上下文信息</strong>，即在对<code>saw</code>进行词性标注时，设置一个window同时将前面几个单词和后面几个单词考虑进来。但是由于句子长度的不确定性，window设置过小，则不能将长句子中的所有单词考虑进来；window设置过大，又会使得网络参数太多，导致过拟合。</li>
 </ol>
-<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。<br><img src="https://img-blog.csdnimg.cn/20210430090132607.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BfbWVtb3J5,size_16,color_FFFFFF,t_70#pic_center" alt="self-attention"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
-<h2 id="self-attention——计算输出向量"><a href="#self-attention——计算输出向量" class="headerlink" title="self-attention——计算输出向量"></a>self-attention——计算输出向量</h2><p>在self-attention中，计算attention的步骤：<br><img src="https://img-blog.csdnimg.cn/20210430115935402.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BfbWVtb3J5,size_16,color_FFFFFF,t_70#pic_center" alt="attention计算步骤"></p>
+<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。<br><img src="lhy-self-attention\self-attention.png#pic_center" alt="self-attention结构"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
+<h2 id="self-attention——计算输出向量"><a href="#self-attention——计算输出向量" class="headerlink" title="self-attention——计算输出向量"></a>self-attention——计算输出向量</h2><p>在self-attention中，计算attention的步骤：<br><img src="lhy-self-attention\attention_compute.png#pic_center" alt="attention计算步骤"></p>
 <ol>
 <li>计算 $query$，即当前向量与 $W_{q}$ 的乘积。计算方法 ：$q_{i} = a_{i}W_{q}$。</li>
 <li>计算 $key$，即其他向量与 $W_{k}$ 的乘积 。计算方法：$k_{j} = a_{j}W_{k},  k\in[1, n]$。</li>
 <li>计算attetion score ($\alpha$)，即当前向量与其他向量的相关性。计算方法：$\alpha_{i, j} = q_{i}.k_{j}$。<em>通常情况下，也需要计算向量和自己的相关性</em> 。</li>
-<li>通过softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。$\alpha’_{i, j} = softmax(\alpha_{i, j})。</li>
+<li>通过softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。$\alpha’_{i, j} = softmax(\alpha_{i, j})$。</li>
 <li>计算 $value$ 。根据$\alpha’$抽取sequence中重要信息。计算方法 ：$v_{j} = a_{j}W_{v}$</li>
 <li>计算输出向量$b_{i}$。计算方法 ：$b_{i} =\sum_{j=1}^n\alpha’_{i, j}.v_{j}$。</li>
 </ol>

@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210430090132607.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BfbWVtb3J5,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2021-04-30T03:03:00.000Z">
-<meta property="article:modified_time" content="2021-04-30T03:40:36.821Z">
+<meta property="article:modified_time" content="2021-04-30T03:53:17.783Z">
 <meta property="article:author" content="YapingWu">
 <meta property="article:tag" content="self-attention">
 <meta property="article:tag" content="自注意力">
@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：11:40:36" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
+              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：11:53:17" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,22 +268,22 @@ self-attention的输出有以下3种情况：<ol>
 <li><strong>考虑上下文信息</strong>，即在对<code>saw</code>进行词性标注时，设置一个window同时将前面几个单词和后面几个单词考虑进来。但是由于句子长度的不确定性，window设置过小，则不能将长句子中的所有单词考虑进来；window设置过大，又会使得网络参数太多，导致过拟合。</li>
 </ol>
 <p>为了将整个句子的信息考虑进来，就要用到self-attention技术。<br><img src="https://img-blog.csdnimg.cn/20210430090132607.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BfbWVtb3J5,size_16,color_FFFFFF,t_70#pic_center" alt="self-attention"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
-<h2 id="self-attention原理"><a href="#self-attention原理" class="headerlink" title="self-attention原理"></a>self-attention原理</h2><h3 id="计算输出向量"><a href="#计算输出向量" class="headerlink" title="计算输出向量"></a>计算输出向量</h3><ol>
-<li><p>计算attention（整个sequence中其他向量跟当前向量的相关程度），用 $\alpha$ 表示。<br>计算两个向量相关性的方法：</p>
+<h2 id="self-attention——计算输出向量"><a href="#self-attention——计算输出向量" class="headerlink" title="self-attention——计算输出向量"></a>self-attention——计算输出向量</h2><p>在self-attention中，计算attention的步骤：</p>
 <ol>
-<li><strong>点乘运算（dot product）</strong>。最常用的方法。输入向量分别乘上两个不同的矩阵 $W_{q}$ 和 $W_{k}$ 得到向量 $q$ 和 $k$ ，再把 $q$ 和 $k$ 做点乘。 $a_{i}$ 和  $a_{j}$ 的相关度 $\alpha_{i,j} = (a_{i}W_{q}) . (a_{j}W_{k})$ 。</li>
-<li><p>加性运算（additive）。不对 $q$ 和 $k$ 做点乘，而是串联起来后使用 $tanh$<br>函数激活。$a_{i}$ 和  $a_{j}$ 的相关度 $\alpha_{i,j} = tanh((a_{i}W_{q}) + (a_{j}W_{k}))$ 。</p>
-<p>在self-attention中，计算输入向量  $a_{i}$ 和其他向量相关性的做法：</p>
-</li>
 <li>计算 $query$，即当前向量与 $W_{q}$ 的乘积。计算方法 ：$q_{i} = a_{i}W_{q}$。</li>
 <li>计算 $key$，即其他向量与 $W_{k}$ 的乘积 。计算方法：$k_{j} = a_{j}W_{k},  k\in[1, n]$。</li>
 <li>计算attetion score ($\alpha$)，即当前向量与其他向量的相关性。计算方法：$\alpha_{i, j} = q_{i}.k_{j}$。<em>通常情况下，也需要计算向量和自己的相关性</em> 。</li>
-<li>通过softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。<code>$\alpha&#39;_&#123;i, j&#125; = softmax(\alpha_&#123;i, j&#125;)</code>。</li>
+<li>通过softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。$\alpha’_{i, j} = softmax(\alpha_{i, j})。</li>
 <li>计算 $value$ 。根据$\alpha’$抽取sequence中重要信息。计算方法 ：$v_{j} = a_{j}W_{v}$</li>
 <li>计算输出向量$b_{i}$。计算方法 ：$b_{i} =\sum_{j=1}^n\alpha’_{i, j}.v_{j}$。</li>
 </ol>
-</li>
+<blockquote>
+<p>计算两个向量相关性的方法：</p>
+<ol>
+<li><strong>点乘运算（dot product）</strong>。最常用的方法。输入向量分别乘上两个不同的矩阵 $W_{q}$ 和 $W_{k}$ 得到向量 $q$ 和 $k$ ，再把 $q$ 和 $k$ 做点乘。 $a_{i}$ 和  $a_{j}$ 的相关度 $\alpha_{i,j} = (a_{i}W_{q}) . (a_{j}W_{k})$ 。</li>
+<li>加性运算（additive）。不对 $q$ 和 $k$ 做点乘，而是串联起来后使用 $tanh$ 函数激活。$a_{i}$ 和  $a_{j}$ 的相关度 $\alpha_{i,j} = tanh((a_{i}W_{q}) + (a_{j}W_{k}))$ 。</li>
 </ol>
+</blockquote>
 <p>参考资料：</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53682800">nlp中的Attention注意力机制+Transformer详解</a></li>
@@ -371,7 +371,7 @@ self-attention的输出有以下3种情况：<ol>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E4%B8%80%EF%BC%9A%E8%BE%93%E5%87%BAlabel%E4%B8%8E%E8%BE%93%E5%85%A5%E5%90%91%E9%87%8F%E4%B8%AA%E6%95%B0%E7%9B%B8%E5%90%8C%EF%BC%88Sequence-Labeling%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">类型一：输出label与输入向量个数相同（Sequence Labeling）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#self-attention%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">self-attention原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%BE%93%E5%87%BA%E5%90%91%E9%87%8F"><span class="nav-number">2.1.1.</span> <span class="nav-text">计算输出向量</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E4%B8%80%EF%BC%9A%E8%BE%93%E5%87%BAlabel%E4%B8%8E%E8%BE%93%E5%85%A5%E5%90%91%E9%87%8F%E4%B8%AA%E6%95%B0%E7%9B%B8%E5%90%8C%EF%BC%88Sequence-Labeling%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">类型一：输出label与输入向量个数相同（Sequence Labeling）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#self-attention%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E8%BE%93%E5%87%BA%E5%90%91%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">self-attention——计算输出向量</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

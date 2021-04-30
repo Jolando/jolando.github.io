@@ -21,14 +21,14 @@
 <ul>
 <li>文本处理</li>
 <li>语音识别</li>
-<li>Drug discovery</li>
-</ul>
-<p>self-attention的输出有以下3种情况：</p>
-<ol>
+<li>Drug discovery<span id="more"></span>
+self-attention的输出有以下3种情况：<ol>
 <li><strong>每个向量都有一个标签</strong>，即输出跟输入数目一样。具体应用：词性标注、推荐系统。</li>
 <li><strong>整个sequence只输出一个标签</strong>。具体应用：语义分析、说话人识别、图片（分子结构图）识别。</li>
 <li><strong>输出的标签个数不确定</strong>。具体应用：机器翻译。</li>
 </ol>
+</li>
+</ul>
 <h1 id="类型一：输出label与输入向量个数相同（Sequence-Labeling）"><a href="#类型一：输出label与输入向量个数相同（Sequence-Labeling）" class="headerlink" title="类型一：输出label与输入向量个数相同（Sequence Labeling）"></a>类型一：输出label与输入向量个数相同（Sequence Labeling）</h1><p>对于输出与输入数目相同的情况，例如对句子<code>I saw a saw</code>中的单词进行词性标注，在这句话中，第一个<code>saw</code>是动词，第二个<code>saw</code>是名词。如果使用全连接网络来处理，有两种方法：</p>
 <ol>
 <li><strong>逐个向量处理</strong>。这种方法的缺陷是，它无法利用序列的上下文信息，全连接网络对于任意位置<code>saw</code>的词性预测结果必然是一样的。</li>

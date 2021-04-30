@@ -34,8 +34,8 @@ self-attention的输出有以下3种情况：<ol>
 <li><strong>逐个向量处理</strong>。这种方法的缺陷是，它无法利用序列的上下文信息，全连接网络对于任意位置<code>saw</code>的词性预测结果必然是一样的。</li>
 <li><strong>考虑上下文信息</strong>，即在对<code>saw</code>进行词性标注时，设置一个window同时将前面几个单词和后面几个单词考虑进来。但是由于句子长度的不确定性，window设置过小，则不能将长句子中的所有单词考虑进来；window设置过大，又会使得网络参数太多，导致过拟合。</li>
 </ol>
-<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。<br><img src="lhy-self-attention\self-attention.png#pic_center" alt="self-attention结构"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
-<h2 id="self-attention——计算输出向量"><a href="#self-attention——计算输出向量" class="headerlink" title="self-attention——计算输出向量"></a>self-attention——计算输出向量</h2><p>在self-attention中，计算attention的步骤：<br><img src="lhy-self-attention\attention_compute.png#pic_center" alt="attention计算步骤"></p>
+<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。<br><img src=".\self-attention.png#pic_center" alt="self-attention结构"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
+<h2 id="self-attention——计算输出向量"><a href="#self-attention——计算输出向量" class="headerlink" title="self-attention——计算输出向量"></a>self-attention——计算输出向量</h2><p>在self-attention中，计算attention的步骤：<br><img src=".\attention_compute.png#pic_center" alt="attention计算步骤"></p>
 <ol>
 <li>计算 $query$，即当前向量与 $W_{q}$ 的乘积。计算方法 ：$q_{i} = a_{i}W_{q}$。</li>
 <li>计算 $key$，即其他向量与 $W_{k}$ 的乘积 。计算方法：$k_{j} = a_{j}W_{k},  k\in[1, n]$。</li>

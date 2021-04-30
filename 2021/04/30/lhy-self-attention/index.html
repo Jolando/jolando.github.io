@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/attention_compute.png#pic_center">
 <meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/attention_vector.png#pic_center">
 <meta property="article:published_time" content="2021-04-30T03:03:00.000Z">
-<meta property="article:modified_time" content="2021-04-30T08:51:22.824Z">
+<meta property="article:modified_time" content="2021-04-30T08:57:47.110Z">
 <meta property="article:author" content="YapingWu">
 <meta property="article:tag" content="self-attention">
 <meta property="article:tag" content="自注意力">
@@ -218,7 +218,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：16:51:22" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
+              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：16:57:47" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,28 +293,33 @@
 <li>计算输出向量<code>O</code>。</li>
 </ol>
 <p><img src="./attention_vector.png#pic_center" alt="在这里插入图片描述"><br>从这个计算过程可以看出，self-attention需要训练的参数只有 $W_{q}、W_{k}和W_{v}$。</p>
+<h1 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h1><p>到目前为止，self-attention中没有位置信息，它不知道每个向量在sequence中的位置是什么，也不知道两个向量间的距离是多少，但是<strong>位置信息有时候也是比较重要</strong>的。例如，在词性标注问题中，也许动词在句首出现的可能性比较低。<br>因此，当你认为你处理的问题中，位置信息比较重要，就需要用到<code>positional encoding</code>技术，也就是为每一个输入向量 $a_i$ 加上一个代表位置的向量 $e_i$ ，告诉self-attention位置的信息。<br>位置变量的设计：</p>
+<ol>
+<li>人工设计（hand-crafted）。</li>
+<li>从数据中学习（研究中）。</li>
+</ol>
+<p><strong>【相关论文】</strong>  </p>
+<ol>
+<li>位置变量的设计方法：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.09229">Learning to encode position for transformer with continuous dynamical model_2003</a></li>
+</ol>
 <h1 id="Self-attention的变体"><a href="#Self-attention的变体" class="headerlink" title="Self-attention的变体"></a>Self-attention的变体</h1><h2 id="Multi-head-Self-attention"><a href="#Multi-head-Self-attention" class="headerlink" title="Multi-head Self-attention"></a>Multi-head Self-attention</h2><p>在要解决的实际问题中，计算相关性时可能会需要计算多个种类的相关性，这个时候就需要设置多个<code>q</code>，每个<code>q</code>负责一个种类的相关性，相应的<code>k、v</code>也需要多个。这里<code>q、k、v</code>的个数即<code>head</code>的个数。<br>attention计算过程：</p>
 <ol>
 <li>计算<code>Q、K、V</code>后，分别乘上另外<code>n</code>（n表示head个数）个矩阵，得到 $Q_{1, n}、K_{1, n}、V_{1, n}$。</li>
 <li>计算分数和正则化。对每个<code>Q、K、V</code>的计算过程与self-attention相同。</li>
-<li>计算输出。将得到的<code>n</code>个<code>O</code>乘以向量$W_o$得到最终输出。<h2 id="Truncated-Self-attention"><a href="#Truncated-Self-attention" class="headerlink" title="Truncated Self-attention"></a>Truncated Self-attention</h2>适用于计算<code>attention</code>时不需要考虑整个sequence，只需要考虑sequence中的一个小范围的问题。这个时候使用<code>Truncated Self-attention</code>可以加快运算速度。</li>
+<li>计算输出。将得到的<code>n</code>个<code>O</code>乘以向量$W_o$得到最终输出。</li>
 </ol>
-<p>【相关论文】</p>
+<h2 id="Truncated-Self-attention"><a href="#Truncated-Self-attention" class="headerlink" title="Truncated Self-attention"></a>Truncated Self-attention</h2><p>适用于计算<code>attention</code>时不需要考虑整个sequence，只需要考虑sequence中的一个小范围的问题。这个时候使用<code>Truncated Self-attention</code>可以加快运算速度。</p>
+<p><strong>【相关论文】</strong></p>
 <ol>
 <li>self-attention各种变体的比较：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.04006">Long Range Arena: A Benchmark for Efficient Transformers_2011</a></li>
 <li>self-attention各种变体的介绍：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2009.06732">Efficient Transformers: A Survey</a></li>
-</ol>
-<h1 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h1><p>到目前为止，self-attention中没有位置信息，它不知道每个向量在sequence中的位置是什么，也不知道两个向量间的距离是多少，但是<strong>位置信息有时候也是比较重要</strong>的。例如，在词性标注问题中，也许动词在句首出现的可能性比较低。<br>因此，当你认为你处理的问题中，位置信息比较重要，就需要用到<code>positional encoding</code>技术，也就是为每一个输入向量 $a_i$ 加上一个代表位置的向量 $e_i$ ，告诉self-attention位置的信息。<br>位置变量的设计：</p>
-<ol>
-<li>人工设计（hand-crafted）。</li>
-<li>从数据中学习（研究中）。相关论文：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.09229">Learning to encode position for transformer with continuous dynamical model_2003</a></li>
 </ol>
 <h1 id="Self-attention与其他神经网络的比较"><a href="#Self-attention与其他神经网络的比较" class="headerlink" title="Self-attention与其他神经网络的比较"></a>Self-attention与其他神经网络的比较</h1><h2 id="Self-attention-v-s-CNN"><a href="#Self-attention-v-s-CNN" class="headerlink" title="Self-attention v.s. CNN"></a>Self-attention v.s. CNN</h2><p>CNN的每个神经元只考虑一个感受野（receptive field）中的信息，Self-attention考虑的整张图片的信息。</p>
 <ul>
 <li>CNN是简化版的Self-attention。</li>
 <li>Self-attention是复杂化的CNN。</li>
 </ul>
-<p>相关论文</p>
+<p><strong>【相关论文】</strong></p>
 <ol>
 <li>Self-attention与CNN的关系： <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.03584">On the Relationship between Self-Attention and Convolutional Layers_1911</a></li>
 <li>Self-attention与CNN模型的比较：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.11929">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale_2010</a></li>
@@ -324,12 +329,12 @@
 <li>RNN在输出一个向量时需要考虑的向量必须在memory(记忆)中，Self-attention只需要一个<code>q</code>和一个<code>k</code>就可以了。</li>
 <li>RNN在处理输入的多个向量时不能并行处理，Self-attention可以并行处理所有输出。</li>
 </ol>
-<p>相关论文</p>
+<p><strong>【相关论文】</strong></p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.16236">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention_2006</a></li>
 </ol>
 <h2 id="Self-attention-v-s-GNN"><a href="#Self-attention-v-s-GNN" class="headerlink" title="Self-attention v.s. GNN"></a>Self-attention v.s. GNN</h2><p>to do…</p>
-<h1 id="Self-attention的其他应用"><a href="#Self-attention的其他应用" class="headerlink" title="Self-attention的其他应用"></a>Self-attention的其他应用</h1><h2 id="图像（image）处理"><a href="#图像（image）处理" class="headerlink" title="图像（image）处理"></a>图像（image）处理</h2><p>【相关论文】</p>
+<h1 id="Self-attention的其他应用"><a href="#Self-attention的其他应用" class="headerlink" title="Self-attention的其他应用"></a>Self-attention的其他应用</h1><h2 id="图像（image）处理"><a href="#图像（image）处理" class="headerlink" title="图像（image）处理"></a>图像（image）处理</h2><p><strong>【相关论文】</strong></p>
 <ol>
 <li>Self-attention GAN。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.08318">Self-Attention Generative Adversarial Networks_1805 </a></li>
 <li>DEtection Transformer(DETR)。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.12872">End-to-End Object Detection with Transformers_2005 </a></li>
@@ -419,7 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8Self-attention"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用Self-attention?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">Self-attention计算过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E7%9A%84%E5%8F%98%E4%BD%93"><span class="nav-number">4.</span> <span class="nav-text">Self-attention的变体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-head-Self-attention"><span class="nav-number">4.1.</span> <span class="nav-text">Multi-head Self-attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Truncated-Self-attention"><span class="nav-number">4.2.</span> <span class="nav-text">Truncated Self-attention</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Positional-Encoding"><span class="nav-number">5.</span> <span class="nav-text">Positional Encoding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E4%B8%8E%E5%85%B6%E4%BB%96%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">6.</span> <span class="nav-text">Self-attention与其他神经网络的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-attention-v-s-CNN"><span class="nav-number">6.1.</span> <span class="nav-text">Self-attention v.s. CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-attention-v-s-RNN"><span class="nav-number">6.2.</span> <span class="nav-text">Self-attention v.s. RNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-attention-v-s-GNN"><span class="nav-number">6.3.</span> <span class="nav-text">Self-attention v.s. GNN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E7%9A%84%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8"><span class="nav-number">7.</span> <span class="nav-text">Self-attention的其他应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%EF%BC%88image%EF%BC%89%E5%A4%84%E7%90%86"><span class="nav-number">7.1.</span> <span class="nav-text">图像（image）处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%EF%BC%88graph%EF%BC%89%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-number">7.2.</span> <span class="nav-text">图（graph）结构数据处理</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8Self-attention"><span class="nav-number">2.</span> <span class="nav-text">为什么要使用Self-attention?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">Self-attention计算过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Positional-Encoding"><span class="nav-number">4.</span> <span class="nav-text">Positional Encoding</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E7%9A%84%E5%8F%98%E4%BD%93"><span class="nav-number">5.</span> <span class="nav-text">Self-attention的变体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-head-Self-attention"><span class="nav-number">5.1.</span> <span class="nav-text">Multi-head Self-attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Truncated-Self-attention"><span class="nav-number">5.2.</span> <span class="nav-text">Truncated Self-attention</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E4%B8%8E%E5%85%B6%E4%BB%96%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">6.</span> <span class="nav-text">Self-attention与其他神经网络的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-attention-v-s-CNN"><span class="nav-number">6.1.</span> <span class="nav-text">Self-attention v.s. CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-attention-v-s-RNN"><span class="nav-number">6.2.</span> <span class="nav-text">Self-attention v.s. RNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-attention-v-s-GNN"><span class="nav-number">6.3.</span> <span class="nav-text">Self-attention v.s. GNN</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Self-attention%E7%9A%84%E5%85%B6%E4%BB%96%E5%BA%94%E7%94%A8"><span class="nav-number">7.</span> <span class="nav-text">Self-attention的其他应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%EF%BC%88image%EF%BC%89%E5%A4%84%E7%90%86"><span class="nav-number">7.1.</span> <span class="nav-text">图像（image）处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%EF%BC%88graph%EF%BC%89%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-number">7.2.</span> <span class="nav-text">图（graph）结构数据处理</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

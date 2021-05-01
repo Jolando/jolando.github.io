@@ -4,55 +4,37 @@
     <title>使用hexo搭建个人博客</title>
     <url>/a927/</url>
     <content><![CDATA[<p>记录hexo常用操作及使用过程中遇到的问题。<span id="more"></span></p>
-<h1>基础操作</h1>
-<h2 id="启动本地服务器"><a class="header-anchor" href="#启动本地服务器">¶</a>启动本地服务器</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><h2 id="启动本地服务器"><a href="#启动本地服务器" class="headerlink" title="启动本地服务器"></a>启动本地服务器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>指定端口：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 9000</span><br></pre></td></tr></table></figure>
-<h2 id="使用hexo-admin写文章"><a class="header-anchor" href="#使用hexo-admin写文章">¶</a>使用hexo admin写文章</h2>
-<p>启动本地服务器后，切换链接：<a href="http://localhost:4000/admin">http://localhost:4000/admin</a></p>
-<h2 id="本地修改部署到github"><a class="header-anchor" href="#本地修改部署到github">¶</a>本地修改部署到github</h2>
-<p>修改本地配置文件或者编写文章后，需要使用以下命令部署到github。</p>
+<h2 id="使用hexo-admin写文章"><a href="#使用hexo-admin写文章" class="headerlink" title="使用hexo admin写文章"></a>使用hexo admin写文章</h2><p>启动本地服务器后，切换链接：<a href="http://localhost:4000/admin">http://localhost:4000/admin</a></p>
+<h2 id="本地修改部署到github"><a href="#本地修改部署到github" class="headerlink" title="本地修改部署到github"></a>本地修改部署到github</h2><p>修改本地配置文件或者编写文章后，需要使用以下命令部署到github。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-<h1>写文章</h1>
-<h2 id="编辑器"><a class="header-anchor" href="#编辑器">¶</a>编辑器</h2>
-<ol>
-<li>HexoEditor
-<ol>
+<h1 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h1><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><ol>
+<li>HexoEditor<ol>
 <li><a href="https://github.com/zhuzhuyule/HexoEditor/releases">下载HexoEditor安装包</a></li>
 <li><a href="https://akilar.top/posts/1da4f99e/">使用HexoEditor</a></li>
 </ol>
 </li>
 <li>Hexo-admin插件</li>
 </ol>
-<h2 id="文章中添加图片"><a class="header-anchor" href="#文章中添加图片">¶</a>文章中添加图片</h2>
-<p>图片可以放在文章自己的目录中。文章的目录可以通过配置_config.yml来生成。</p>
+<h2 id="文章中添加图片"><a href="#文章中添加图片" class="headerlink" title="文章中添加图片"></a>文章中添加图片</h2><p>图片可以放在文章自己的目录中。文章的目录可以通过配置_config.yml来生成。</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>将<code>_config.yml</code>文件中的配置项<code>post_asset_folder</code>设为<code>true</code>后，执行命令<code>hexo new post_name</code>，在<code>source/_posts</code>中会生成文章<code>post_name.md</code>和同名文件夹<code>post_name</code>。将图片资源放在post_name中，文章就可以使用相对路径引用图片资源了。</p>
 <figure class="highlight text"><figcaption><span>post_name.md</span></figcaption><table><tr><td class="code"><pre><span class="line">![self-attention结构](.\xxx.png#pic_center)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong>CDN引用</strong><br>
-除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。在CDN中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
+<p><strong>CDN引用</strong><br>除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。在CDN中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
 </blockquote>
-<h1>hexo 插件</h1>
-<h2 id="博客优化"><a class="header-anchor" href="#博客优化">¶</a>博客优化</h2>
-<p>博客压缩：hexo-neat<br>
-图片懒加载：hexo-lazyload-image<br>
-<a href="https://evanhongyousan.github.io/2020/06/26/hexo-next-github-page-performance/">配置使用jsDelivr cdn、图片懒加载</a><br>
-安装插件</p>
+<h1 id="hexo-插件"><a href="#hexo-插件" class="headerlink" title="hexo 插件"></a>hexo 插件</h1><h2 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h2><p>博客压缩：hexo-neat<br>图片懒加载：hexo-lazyload-image<br><a href="https://evanhongyousan.github.io/2020/06/26/hexo-next-github-page-performance/">配置使用jsDelivr cdn、图片懒加载</a><br>安装插件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-neat --save</span><br></pre></td></tr></table></figure>
 <p>修改配置文件</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 博文压缩</span></span><br><span class="line"><span class="attr">neat_enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 压缩html</span></span><br><span class="line"><span class="attr">neat_html:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line"><span class="comment"># 压缩css  </span></span><br><span class="line"><span class="attr">neat_css:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/*.min.css&#x27;</span></span><br><span class="line"><span class="comment"># 压缩js</span></span><br><span class="line"><span class="attr">neat_js:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mangle:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">output:</span></span><br><span class="line">  <span class="attr">compress:</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/*.min.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/jquery.fancybox.pack.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/index.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/fireworks.js&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="sitemap生成"><a class="header-anchor" href="#sitemap生成">¶</a>sitemap生成</h2>
-<p>google：hexo-generator-sitemap<br>
-baidu：hexo-generator-baidu-sitemap<br>
-详细配置参考：<a href="https://eericzeng.github.io/2019/07/14/hexo%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9sitemap%E7%9A%84%E4%BD%BF%E7%94%A8/">hexo博客站点sitemap的使用</a></p>
-<h2 id="生成短链接"><a class="header-anchor" href="#生成短链接">¶</a>生成短链接</h2>
-<p>hexo-abbrlink<br>
-安装插件</p>
+<h2 id="sitemap生成"><a href="#sitemap生成" class="headerlink" title="sitemap生成"></a>sitemap生成</h2><p>google：hexo-generator-sitemap<br>baidu：hexo-generator-baidu-sitemap<br>详细配置参考：<a href="https://eericzeng.github.io/2019/07/14/hexo%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9sitemap%E7%9A%84%E4%BD%BF%E7%94%A8/">hexo博客站点sitemap的使用</a></p>
+<h2 id="生成短链接"><a href="#生成短链接" class="headerlink" title="生成短链接"></a>生成短链接</h2><p>hexo-abbrlink<br>安装插件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
 <p>修改配置文件</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:abbrlink/</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc16</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure>
+
 <p>参考资料：</p>
 <ol>
 <li><a href="https://segmentfault.com/a/1190000023346633">保姆级——小白如何搭建自己的博客（Hexo+Github Pages）</a></li>
@@ -70,8 +52,7 @@ baidu：hexo-generator-baidu-sitemap<br>
     <title>李宏毅机器学习学习笔记——自注意力机制</title>
     <url>/a426/</url>
     <content><![CDATA[<p>self-attention也是一个常见的neural network框架，用来解决输入是一组向量并且向量的个数是不确定的问题。<span id="more"></span></p>
-<h1>应用场景</h1>
-<ul>
+<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><ul>
 <li>文本处理</li>
 <li>语音识别</li>
 <li>Drug discovery</li>
@@ -82,25 +63,20 @@ baidu：hexo-generator-baidu-sitemap<br>
 <li><strong>整个sequence只输出一个标签</strong>。具体应用：语义分析、说话人识别、图片（分子结构图）识别。</li>
 <li><strong>输出的标签个数不确定</strong>。具体应用：机器翻译。</li>
 </ol>
-<h1>为什么要使用Self-attention?</h1>
-<p>对于输出与输入数目相同的情况，这种问题也称作Sequence Labeling问题。例如对句子<code>I saw a saw</code>中的单词进行词性标注，在这句话中，第一个<code>saw</code>是动词，第二个<code>saw</code>是名词。如果使用全连接网络来处理，有两种方法：</p>
+<h1 id="为什么要使用Self-attention"><a href="#为什么要使用Self-attention" class="headerlink" title="为什么要使用Self-attention?"></a>为什么要使用Self-attention?</h1><p>对于输出与输入数目相同的情况，这种问题也称作Sequence Labeling问题。例如对句子<code>I saw a saw</code>中的单词进行词性标注，在这句话中，第一个<code>saw</code>是动词，第二个<code>saw</code>是名词。如果使用全连接网络来处理，有两种方法：</p>
 <ol>
 <li><strong>逐个向量处理</strong>。这种方法的缺陷是，它无法利用序列的上下文信息，全连接网络对于任意位置<code>saw</code>的词性预测结果必然是一样的。</li>
 <li><strong>考虑上下文信息</strong>，即在对<code>saw</code>进行词性标注时，设置一个window同时将前面几个单词和后面几个单词考虑进来。但是由于句子长度的不确定性，window设置过小，则不能将长句子中的所有单词考虑进来；window设置过大，又会使得网络参数太多，导致过拟合。</li>
 </ol>
-<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。self-attention网络结构：<br>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original=".%5Cself-attention.png#pic_center" alt="self-attention"><br>
-self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
-<h1>Self-attention计算过程</h1>
-<blockquote>
+<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。self-attention网络结构：<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original=".%5Cself-attention.png#pic_center" alt="self-attention"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
+<h1 id="Self-attention计算过程"><a href="#Self-attention计算过程" class="headerlink" title="Self-attention计算过程"></a>Self-attention计算过程</h1><blockquote>
 <p>计算两个向量相关性的方法：</p>
 <ol>
 <li><strong>点乘运算（dot product）</strong>。最常用的方法。输入向量分别乘上两个不同的矩阵 $W_{q}$ 和 $W_{k}$ 得到向量 $q$ 和 $k$ ，再把 $q$ 和 $k$ 做点乘。 $a_{i}$ 和  $a_{j}$ 的相关度 $\alpha_{i,j} = (a_{i}W_{q}) . (a_{j}W_{k})$ 。</li>
 <li>加性运算（additive）。不对 $q$ 和 $k$ 做点乘，而是串联起来后使用 $tanh$ 函数激活。$a_{i}$ 和  $a_{j}$ 的相关度 $\alpha_{i,j} = tanh((a_{i}W_{q}) + (a_{j}W_{k}))$ 。</li>
 </ol>
 </blockquote>
-<p>在self-attention中，计算attention的步骤：<br>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="./attention_compute.png#pic_center" alt="attention计算步骤"></p>
+<p>在self-attention中，计算attention的步骤：<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="./attention_compute.png#pic_center" alt="attention计算步骤"></p>
 <ol>
 <li>计算 $query$，即当前向量与 $W_{q}$ 的乘积。计算方法 ：$q_{i} = W_{q}a_{i}$。</li>
 <li>计算 $key$，即其他向量与 $W_{k}$ 的乘积 。计算方法：$k_{j} = W_{k}a_{j},  k\in[1, n]$。</li>
@@ -109,46 +85,35 @@ self-attention对于每个向量都会考虑整个sequence的信息后输出一�
 <li>计算 $value$ 。根据$\alpha’$抽取sequence中重要信息。计算方法 ：$v_{j} = W_{v}a_{j}$</li>
 <li>计算输出向量$b_{i}$。计算方法 ：$b_{i} =\sum_{j=1}^n\alpha’<em>{i, j}.v</em>{j}$。</li>
 </ol>
-<p>==self-attention中输出向量是同时计算出来的，不需要按序计算。==<br>
-以上步骤使用矩阵操作的方式可以简单描述为：</p>
+<p>==self-attention中输出向量是同时计算出来的，不需要按序计算。==<br>以上步骤使用矩阵操作的方式可以简单描述为：</p>
 <ol>
 <li>根据输入向量<code>I</code>计算 <code>Q、K、V</code>。</li>
 <li>计算分数及正则化。</li>
 <li>计算输出向量<code>O</code>。</li>
 </ol>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="./attention_vector.png#pic_center" alt="在这里插入图片描述"><br>
-从这个计算过程可以看出，self-attention需要训练的参数只有 $W_{q}、W_{k}和W_{v}$。</p>
-<h1>Positional Encoding</h1>
-<p>到目前为止，self-attention中没有位置信息，它不知道每个向量在sequence中的位置是什么，也不知道两个向量间的距离是多少，但是<strong>位置信息有时候也是比较重要</strong>的。例如，在词性标注问题中，也许动词在句首出现的可能性比较低。<br>
-因此，当你认为你处理的问题中，位置信息比较重要，就需要用到<code>positional encoding</code>技术，也就是为每一个输入向量 $a_i$ 加上一个代表位置的向量 $e_i$ ，告诉self-attention位置的信息。<br>
-位置变量的设计：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="./attention_vector.png#pic_center" alt="在这里插入图片描述"><br>从这个计算过程可以看出，self-attention需要训练的参数只有 $W_{q}、W_{k}和W_{v}$。</p>
+<h1 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h1><p>到目前为止，self-attention中没有位置信息，它不知道每个向量在sequence中的位置是什么，也不知道两个向量间的距离是多少，但是<strong>位置信息有时候也是比较重要</strong>的。例如，在词性标注问题中，也许动词在句首出现的可能性比较低。<br>因此，当你认为你处理的问题中，位置信息比较重要，就需要用到<code>positional encoding</code>技术，也就是为每一个输入向量 $a_i$ 加上一个代表位置的向量 $e_i$ ，告诉self-attention位置的信息。<br>位置变量的设计：</p>
 <ol>
 <li>人工设计（hand-crafted）。</li>
 <li>从数据中学习（研究中）。</li>
 </ol>
-<p><strong>【相关论文】</strong></p>
+<p><strong>【相关论文】</strong>  </p>
 <ol>
 <li>位置变量的设计方法：<a href="https://arxiv.org/abs/2003.09229">Learning to encode position for transformer with continuous dynamical model_2003</a></li>
 </ol>
-<h1>Self-attention的变体</h1>
-<h2 id="Multi-head-Self-attention"><a class="header-anchor" href="#Multi-head-Self-attention">¶</a>Multi-head Self-attention</h2>
-<p>在要解决的实际问题中，计算相关性时可能会需要计算多个种类的相关性，这个时候就需要设置多个<code>q</code>，每个<code>q</code>负责一个种类的相关性，相应的<code>k、v</code>也需要多个。这里<code>q、k、v</code>的个数即<code>head</code>的个数。<br>
-attention计算过程：</p>
+<h1 id="Self-attention的变体"><a href="#Self-attention的变体" class="headerlink" title="Self-attention的变体"></a>Self-attention的变体</h1><h2 id="Multi-head-Self-attention"><a href="#Multi-head-Self-attention" class="headerlink" title="Multi-head Self-attention"></a>Multi-head Self-attention</h2><p>在要解决的实际问题中，计算相关性时可能会需要计算多个种类的相关性，这个时候就需要设置多个<code>q</code>，每个<code>q</code>负责一个种类的相关性，相应的<code>k、v</code>也需要多个。这里<code>q、k、v</code>的个数即<code>head</code>的个数。<br>attention计算过程：</p>
 <ol>
 <li>计算<code>Q、K、V</code>后，分别乘上另外<code>n</code>（n表示head个数）个矩阵，得到 $Q_{1, n}、K_{1, n}、V_{1, n}$。</li>
 <li>计算分数和正则化。对每个<code>Q、K、V</code>的计算过程与self-attention相同。</li>
 <li>计算输出。将得到的<code>n</code>个<code>O</code>乘以向量$W_o$得到最终输出。</li>
 </ol>
-<h2 id="Truncated-Self-attention"><a class="header-anchor" href="#Truncated-Self-attention">¶</a>Truncated Self-attention</h2>
-<p>适用于计算<code>attention</code>时不需要考虑整个sequence，只需要考虑sequence中的一个小范围的问题。这个时候使用<code>Truncated Self-attention</code>可以加快运算速度。</p>
+<h2 id="Truncated-Self-attention"><a href="#Truncated-Self-attention" class="headerlink" title="Truncated Self-attention"></a>Truncated Self-attention</h2><p>适用于计算<code>attention</code>时不需要考虑整个sequence，只需要考虑sequence中的一个小范围的问题。这个时候使用<code>Truncated Self-attention</code>可以加快运算速度。</p>
 <p><strong>【相关论文】</strong></p>
 <ol>
 <li>self-attention各种变体的比较：<a href="https://arxiv.org/abs/2011.04006">Long Range Arena: A Benchmark for Efficient Transformers_2011</a></li>
 <li>self-attention各种变体的介绍：<a href="https://arxiv.org/abs/2009.06732">Efficient Transformers: A Survey</a></li>
 </ol>
-<h1>Self-attention与其他神经网络的比较</h1>
-<h2 id="Self-attention-v-s-CNN"><a class="header-anchor" href="#Self-attention-v-s-CNN">¶</a>Self-attention v.s. CNN</h2>
-<p>CNN的每个神经元只考虑一个感受野（receptive field）中的信息，Self-attention考虑的整张图片的信息。</p>
+<h1 id="Self-attention与其他神经网络的比较"><a href="#Self-attention与其他神经网络的比较" class="headerlink" title="Self-attention与其他神经网络的比较"></a>Self-attention与其他神经网络的比较</h1><h2 id="Self-attention-v-s-CNN"><a href="#Self-attention-v-s-CNN" class="headerlink" title="Self-attention v.s. CNN"></a>Self-attention v.s. CNN</h2><p>CNN的每个神经元只考虑一个感受野（receptive field）中的信息，Self-attention考虑的整张图片的信息。</p>
 <ul>
 <li>CNN是简化版的Self-attention。</li>
 <li>Self-attention是复杂化的CNN。</li>
@@ -158,8 +123,7 @@ attention计算过程：</p>
 <li>Self-attention与CNN的关系： <a href="https://arxiv.org/abs/1911.03584">On the Relationship between Self-Attention and Convolutional Layers_1911</a></li>
 <li>Self-attention与CNN模型的比较：<a href="https://arxiv.org/abs/2010.11929">An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale_2010</a></li>
 </ol>
-<h2 id="Self-attention-v-s-RNN"><a class="header-anchor" href="#Self-attention-v-s-RNN">¶</a>Self-attention v.s. RNN</h2>
-<p>不同点：</p>
+<h2 id="Self-attention-v-s-RNN"><a href="#Self-attention-v-s-RNN" class="headerlink" title="Self-attention v.s. RNN"></a>Self-attention v.s. RNN</h2><p>不同点：</p>
 <ol>
 <li>RNN在输出一个向量时需要考虑的向量必须在memory(记忆)中，Self-attention只需要一个<code>q</code>和一个<code>k</code>就可以了。</li>
 <li>RNN在处理输入的多个向量时不能并行处理，Self-attention可以并行处理所有输出。</li>
@@ -168,18 +132,14 @@ attention计算过程：</p>
 <ol>
 <li><a href="https://arxiv.org/abs/2006.16236">Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention_2006</a></li>
 </ol>
-<h2 id="Self-attention-v-s-GNN"><a class="header-anchor" href="#Self-attention-v-s-GNN">¶</a>Self-attention v.s. GNN</h2>
-<p>to do…</p>
-<h1>Self-attention的其他应用</h1>
-<h2 id="图像（image）处理"><a class="header-anchor" href="#图像（image）处理">¶</a>图像（image）处理</h2>
-<p><strong>【相关论文】</strong></p>
+<h2 id="Self-attention-v-s-GNN"><a href="#Self-attention-v-s-GNN" class="headerlink" title="Self-attention v.s. GNN"></a>Self-attention v.s. GNN</h2><p>to do…</p>
+<h1 id="Self-attention的其他应用"><a href="#Self-attention的其他应用" class="headerlink" title="Self-attention的其他应用"></a>Self-attention的其他应用</h1><h2 id="图像（image）处理"><a href="#图像（image）处理" class="headerlink" title="图像（image）处理"></a>图像（image）处理</h2><p><strong>【相关论文】</strong></p>
 <ol>
 <li>Self-attention GAN。<a href="https://arxiv.org/abs/1805.08318">Self-Attention Generative Adversarial Networks_1805 </a></li>
 <li>DEtection Transformer(DETR)。<a href="https://arxiv.org/abs/2005.12872">End-to-End Object Detection with Transformers_2005 </a></li>
 </ol>
 <p>比较self-attention与CNN</p>
-<h2 id="图（graph）结构数据处理"><a class="header-anchor" href="#图（graph）结构数据处理">¶</a>图（graph）结构数据处理</h2>
-<p>比较self-attention与GNN</p>
+<h2 id="图（graph）结构数据处理"><a href="#图（graph）结构数据处理" class="headerlink" title="图（graph）结构数据处理"></a>图（graph）结构数据处理</h2><p>比较self-attention与GNN</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -205,16 +165,12 @@ attention计算过程：</p>
 <span id="more"></span>
 <p>Seq2seq模型也可以应用在不是明确的序列到序列问题上，例如：</p>
 <ol>
-<li>语义解析（Syntactic Parsing）<br>
-语义解析问题中，输入是一句话，输出一个语法解析树，如果把树用嵌套括号表示法表示出来，那么这个问题也可以看作是一个Seq2seq问题。</li>
-<li>多标签分类问题（Multi-label Classification）<br>
-Multi-label Classification和Multi-class Classification的区别：前者是指一个输入属于<strong>多个</strong>类别，后者是指从多个类别中选出输入对应的那<strong>一个</strong>类别。</li>
+<li>语义解析（Syntactic Parsing）<br> 语义解析问题中，输入是一句话，输出一个语法解析树，如果把树用嵌套括号表示法表示出来，那么这个问题也可以看作是一个Seq2seq问题。</li>
+<li>多标签分类问题（Multi-label Classification）<br> Multi-label Classification和Multi-class Classification的区别：前者是指一个输入属于<strong>多个</strong>类别，后者是指从多个类别中选出输入对应的那<strong>一个</strong>类别。</li>
 <li>目标检测（Object Detection）</li>
 </ol>
-<h1>Seq2seq模型介绍</h1>
-<h2 id="模型结构"><a class="header-anchor" href="#模型结构">¶</a>模型结构</h2>
-<p>Seq2seq模型由编码器（Encoder）和解码器（Decoder）两部分组成。</p>
-<p>编码器对每个输入向量都会产生一个输出。这个过程使用RNN、CNN和Self-attention也可以完成。Transformer的Encoder使用的是加入了残差连接（residual connection）和正则化（Layer Normalization）的Self-attention。</p>
+<h1 id="Seq2seq模型介绍"><a href="#Seq2seq模型介绍" class="headerlink" title="Seq2seq模型介绍"></a>Seq2seq模型介绍</h1><h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p>Seq2seq模型由编码器（Encoder）和解码器（Decoder）两部分组成。</p>
+<p>编码器对每个输入向量都会产生一个输出。这个过程使用RNN、CNN和Self-attention也可以完成。Transformer的Encoder使用的是加入了残差连接（residual connection）和正则化（Layer Normalization<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>）的Self-attention。</p>
 <p><strong>【论文阅读】</strong></p>
 <ol>
 <li>Seq2seq模型在语义解析（Syntactic Parsing）上的应用：<a href="https://arxiv.org/abs/1412.7449">Grammar as a Foreign Language_1412</a></li>

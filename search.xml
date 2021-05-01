@@ -20,7 +20,9 @@
 <blockquote>
 <p><strong>CDN引用</strong><br>除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。在CDN中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
 </blockquote>
-<h1 id="hexo-插件"><a href="#hexo-插件" class="headerlink" title="hexo 插件"></a>hexo 插件</h1><h2 id="博客压缩"><a href="#博客压缩" class="headerlink" title="博客压缩"></a>博客压缩</h2><h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><h2 id="博客加密"><a href="#博客加密" class="headerlink" title="博客加密"></a>博客加密</h2><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><p>参考资料：</p>
+<h1 id="hexo-插件"><a href="#hexo-插件" class="headerlink" title="hexo 插件"></a>hexo 插件</h1><h2 id="博客压缩"><a href="#博客压缩" class="headerlink" title="博客压缩"></a>博客压缩</h2><h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><h2 id="博客加密"><a href="#博客加密" class="headerlink" title="博客加密"></a>博客加密</h2><h2 id="sitemap生成"><a href="#sitemap生成" class="headerlink" title="sitemap生成"></a>sitemap生成</h2><p>google：hexo-generator-sitemap<br>baidu：hexo-generator-baidu-sitemap</p>
+<p>详细配置参考：<a href="https://eericzeng.github.io/2019/07/14/hexo%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9sitemap%E7%9A%84%E4%BD%BF%E7%94%A8/">hexo博客站点sitemap的使用</a></p>
+<p>参考资料：</p>
 <ol>
 <li><a href="https://segmentfault.com/a/1190000023346633">保姆级——小白如何搭建自己的博客（Hexo+Github Pages）</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/109382792">如何快速搭建自己的博客平台</a></li>

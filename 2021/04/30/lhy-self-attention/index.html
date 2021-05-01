@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/attention_compute.png#pic_center">
 <meta property="og:image" content="https://yapingwu.github.io/2021/04/30/lhy-self-attention/attention_vector.png#pic_center">
 <meta property="article:published_time" content="2021-04-30T03:03:00.000Z">
-<meta property="article:modified_time" content="2021-04-30T08:57:47.110Z">
+<meta property="article:modified_time" content="2021-05-01T00:02:37.992Z">
 <meta property="article:author" content="YapingWu">
 <meta property="article:tag" content="self-attention">
 <meta property="article:tag" content="自注意力">
@@ -139,6 +139,11 @@
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -216,10 +221,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-30 11:03:00 / 修改时间：16:57:47" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
+              <time title="创建时间：2021-04-30 11:03:00" itemprop="dateCreated datePublished" datetime="2021-04-30T11:03:00+08:00">2021-04-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-01 08:02:37" itemprop="dateModified" datetime="2021-05-01T08:02:37+08:00">2021-05-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,7 +280,7 @@
 <li><strong>逐个向量处理</strong>。这种方法的缺陷是，它无法利用序列的上下文信息，全连接网络对于任意位置<code>saw</code>的词性预测结果必然是一样的。</li>
 <li><strong>考虑上下文信息</strong>，即在对<code>saw</code>进行词性标注时，设置一个window同时将前面几个单词和后面几个单词考虑进来。但是由于句子长度的不确定性，window设置过小，则不能将长句子中的所有单词考虑进来；window设置过大，又会使得网络参数太多，导致过拟合。</li>
 </ol>
-<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。self-attention网络结构：<br><img src="./self-attention.png#pic_center" alt="self-attention"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
+<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。self-attention网络结构：<br><img src=".\self-attention.png#pic_center" alt="self-attention"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
 <h1 id="Self-attention计算过程"><a href="#Self-attention计算过程" class="headerlink" title="Self-attention计算过程"></a>Self-attention计算过程</h1><blockquote>
 <p>计算两个向量相关性的方法：</p>
 <ol>
@@ -445,13 +456,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -20,12 +20,18 @@
 <blockquote>
 <p><strong>CDN引用</strong><br>除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。在CDN中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
 </blockquote>
-<p>参考资料：</p>
+<h1 id="hexo-插件"><a href="#hexo-插件" class="headerlink" title="hexo 插件"></a>hexo 插件</h1><h2 id="博客压缩"><a href="#博客压缩" class="headerlink" title="博客压缩"></a>博客压缩</h2><h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><h2 id="博客加密"><a href="#博客加密" class="headerlink" title="博客加密"></a>博客加密</h2><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><p>参考资料：</p>
 <ol>
 <li><a href="https://segmentfault.com/a/1190000023346633">保姆级——小白如何搭建自己的博客（Hexo+Github Pages）</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/109382792">如何快速搭建自己的博客平台</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>李宏毅机器学习学习笔记——自注意力机制</title>
@@ -47,7 +53,7 @@
 <li><strong>逐个向量处理</strong>。这种方法的缺陷是，它无法利用序列的上下文信息，全连接网络对于任意位置<code>saw</code>的词性预测结果必然是一样的。</li>
 <li><strong>考虑上下文信息</strong>，即在对<code>saw</code>进行词性标注时，设置一个window同时将前面几个单词和后面几个单词考虑进来。但是由于句子长度的不确定性，window设置过小，则不能将长句子中的所有单词考虑进来；window设置过大，又会使得网络参数太多，导致过拟合。</li>
 </ol>
-<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。self-attention网络结构：<br><img src="./self-attention.png#pic_center" alt="self-attention"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
+<p>为了将整个句子的信息考虑进来，就要用到self-attention技术。self-attention网络结构：<br><img src=".\self-attention.png#pic_center" alt="self-attention"><br>self-attention对于每个向量都会考虑整个sequence的信息后输出一个向量。</p>
 <h1 id="Self-attention计算过程"><a href="#Self-attention计算过程" class="headerlink" title="Self-attention计算过程"></a>Self-attention计算过程</h1><blockquote>
 <p>计算两个向量相关性的方法：</p>
 <ol>

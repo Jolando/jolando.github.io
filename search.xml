@@ -81,14 +81,14 @@
 <li>计算 $query$，即当前向量与 $W_{q}$ 的乘积。计算方法 ：$q_{i} = W_{q}a_{i}$。</li>
 <li>计算 $key$，即其他向量与 $W_{k}$ 的乘积 。计算方法：$k_{j} = W_{k}a_{j},  k\in[1, n]$。</li>
 <li>计算attetion score ($\alpha$)，即当前向量与其他向量的相关性。计算方法：$\alpha_{i, j} = q_{i}.k_{j}$。<em>通常情况下，也需要计算向量和自己的相关性</em> 。</li>
-<li>分数正则化（normalization）。使用softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。$\alpha’<em>{i, j} = softmax(\alpha</em>{i, j})。</li>
+<li>计算$\alpha’$。使用softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。$\alpha’<em>{i, j} = softmax(\alpha</em>{i, j})。</li>
 <li>计算 $value$ 。根据$\alpha’$抽取sequence中重要信息。计算方法 ：$v_{j} = W_{v}a_{j}$</li>
 <li>计算输出向量$b_{i}$。计算方法 ：$b_{i} =\sum_{j=1}^n\alpha’<em>{i, j}.v</em>{j}$。</li>
 </ol>
 <p>==self-attention中输出向量是同时计算出来的，不需要按序计算。==<br>以上步骤使用矩阵操作的方式可以简单描述为：</p>
 <ol>
 <li>根据输入向量<code>I</code>计算 <code>Q、K、V</code>。</li>
-<li>计算分数及正则化。</li>
+<li>计算分数。</li>
 <li>计算输出向量<code>O</code>。</li>
 </ol>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="./attention_vector.png#pic_center" alt="在这里插入图片描述"><br>从这个计算过程可以看出，self-attention需要训练的参数只有 $W_{q}、W_{k}和W_{v}$。</p>
@@ -165,22 +165,16 @@
 <span id="more"></span>
 <p>Seq2seq模型也可以应用在不是明确的序列到序列问题上，例如：</p>
 <ol>
-<li>语义解析（Syntactic Parsing）<br> 语义解析问题中，输入是一句话，输出一个语法解析树，如果把树用嵌套括号表示法表示出来，那么这个问题也可以看作是一个Seq2seq问题。</li>
-<li>多标签分类问题（Multi-label Classification）<br> Multi-label Classification和Multi-class Classification的区别：前者是指一个输入属于<strong>多个</strong>类别，后者是指从多个类别中选出输入对应的那<strong>一个</strong>类别。</li>
-<li>目标检测（Object Detection）</li>
+<li>语义解析（Syntactic Parsing）<br> 语义解析问题中，输入是一句话，输出一个语法解析树，如果把树用嵌套括号表示法表示出来，那么这个问题也可以看作是一个Seq2seq问题<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>。</li>
+<li>多标签分类问题（Multi-label Classification）<br> Multi-label Classification和Multi-class Classification的区别：前者是指一个输入属于<strong>多个</strong>类别，后者是指从多个类别中选出输入对应的那<strong>一个</strong>类别<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>。</li>
+<li>目标检测（Object Detection）<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></li>
 </ol>
-<h1 id="Seq2seq模型介绍"><a href="#Seq2seq模型介绍" class="headerlink" title="Seq2seq模型介绍"></a>Seq2seq模型介绍</h1><h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p>Seq2seq模型由编码器（Encoder）和解码器（Decoder）两部分组成。</p>
-<p>编码器对每个输入向量都会产生一个输出。这个过程使用RNN、CNN和Self-attention也可以完成。Transformer的Encoder使用的是加入了残差连接（residual connection）和正则化（Layer Normalization<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>）的Self-attention。</p>
-<p><strong>【论文阅读】</strong><br>[^1:] test</p>
-<ol>
-<li>Seq2seq模型在语义解析（Syntactic Parsing）上的应用：<a href="https://arxiv.org/abs/1412.7449">Grammar as a Foreign Language_1412</a></li>
-<li>Seq2seq模型在多标签分类问题上的应用：<a href="https://arxiv.org/abs/1909.03434">Order-free Learning Alleviating Exposure Bias in Multi-label Classification_1909</a>、<a href="https://arxiv.org/abs/1707.05495">Order-Free RNN with Visual Attention for Multi-Label Classification_1707</a></li>
-<li>Seq2seq在目标检测问题上的应用：<a href="https://arxiv.org/abs/2005.12872">End-to-End Object Detection with Transformers_2005</a></li>
-<li>Seq2seq模型的提出：<a href="https://arxiv.org/abs/1409.3215">Sequence to Sequence Learning with Neural Networks_1409</a></li>
-<li>Transformer模型的提出：<a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a></li>
-<li>Layer Normalization：<a href="https://arxiv.org/abs/1607.06450">Layer Normalization</a></li>
-</ol>
-]]></content>
+<h1 id="Seq2seq模型介绍"><a href="#Seq2seq模型介绍" class="headerlink" title="Seq2seq模型介绍"></a>Seq2seq模型介绍</h1><h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p>Seq2seq模型由编码器（Encoder）和解码器（Decoder）两部分组成<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup><sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>。</p>
+<p>编码器对每个输入向量都会产生一个输出。这个过程使用RNN、CNN和Self-attention也可以完成。Transformer的Encoder使用的是加入了残差连接（residual connection）和正则化（Layer Normalization<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>）的Self-attention。</p>
+<blockquote>
+<p>Layer Norm和Batch Norm的区别：Batch Norm是对不同样本（example）同一个维度（dimension）不同的特征（feature）计算均值（mean）和标准差(standard deviation)，Layer Norm是对同一个样本同一个特征的不同维度计算均值和标准差。</p>
+</blockquote>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">Seq2seq模型在语义解析（Syntactic Parsing）上的应用：<a href="https://arxiv.org/abs/1412.7449">Grammar as a Foreign Language_1412</a></span><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">2.</span><span style="display: inline-block; vertical-align: top;">Seq2seq模型在多标签分类问题上的应用：<a href="https://arxiv.org/abs/1909.03434">Order-free Learning Alleviating Exposure Bias in Multi-label Classification_1909</a>、<a href="https://arxiv.org/abs/1707.05495">Order-Free RNN with Visual Attention for Multi-Label Classification_1707</a></span><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">3.</span><span style="display: inline-block; vertical-align: top;">Seq2seq在目标检测问题上的应用：<a href="https://arxiv.org/abs/2005.12872">End-to-End Object Detection with Transformers_2005</a></span><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">4.</span><span style="display: inline-block; vertical-align: top;">Seq2seq模型的提出：<a href="https://arxiv.org/abs/1409.3215">Sequence to Sequence Learning with Neural Networks_1409</a></span><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">5.</span><span style="display: inline-block; vertical-align: top;">Transformer模型的提出：<a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a></span><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">6.</span><span style="display: inline-block; vertical-align: top;">Layer Normalization：<a href="https://arxiv.org/abs/1607.06450">Layer Normalization</a></span><a href="#fnref:6" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
       <categories>
         <category>机器学习</category>
       </categories>

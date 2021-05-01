@@ -171,7 +171,7 @@
 </ol>
 <h1 id="Seq2seq模型介绍"><a href="#Seq2seq模型介绍" class="headerlink" title="Seq2seq模型介绍"></a>Seq2seq模型介绍</h1><h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p>Seq2seq模型由编码器（Encoder）和解码器（Decoder）两部分组成。</p>
 <p>编码器对每个输入向量都会产生一个输出。这个过程使用RNN、CNN和Self-attention也可以完成。Transformer的Encoder使用的是加入了残差连接（residual connection）和正则化（Layer Normalization<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>）的Self-attention。</p>
-<p><strong>【论文阅读】</strong></p>
+<p><strong>【论文阅读】</strong><br>[^1:] test</p>
 <ol>
 <li>Seq2seq模型在语义解析（Syntactic Parsing）上的应用：<a href="https://arxiv.org/abs/1412.7449">Grammar as a Foreign Language_1412</a></li>
 <li>Seq2seq模型在多标签分类问题上的应用：<a href="https://arxiv.org/abs/1909.03434">Order-free Learning Alleviating Exposure Bias in Multi-label Classification_1909</a>、<a href="https://arxiv.org/abs/1707.05495">Order-Free RNN with Visual Attention for Multi-Label Classification_1707</a></li>

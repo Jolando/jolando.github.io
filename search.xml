@@ -51,9 +51,7 @@
   <entry>
     <title>李宏毅机器学习笔记——Auto-Encoder</title>
     <url>/1b07/</url>
-    <content><![CDATA[<p>Auto-Encoder是一种非监督学习，它的主要作用是对输入进行压缩表示，可用于数据降维。</p>
-<span id="more"></span>
-<p>具体的做法：</p>
+    <content><![CDATA[<p>Auto-Encoder是一种非监督学习，它的主要作用是对输入进行压缩表示，可用于数据降维。<br><span id="more"></span><br>具体的做法：</p>
 <ol>
 <li>使用一个Encoder网络对图片进行编码，得到一个code。</li>
 <li>再使用一个Decoder网络对code进行解码，得到一个图片。</li>

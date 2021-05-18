@@ -49,6 +49,34 @@
       </tags>
   </entry>
   <entry>
+    <title>keras学习笔记一</title>
+    <url>/f50f/</url>
+    <content><![CDATA[<p>Tensorflow Version:  2.4.0</p>
+<p><strong>训练神经网络应该使用keras还是tf.keras？</strong></p>
+<p>从keras2.3.0版本开始，keras已经和tf.keras同步，但是开发人员应该在TensorFlow2.0上使用tf.keras，因为后续的keras软件包将仅支持错误修复，且后端将仅支持tensorflow。$^{[1]}$。</p>
+<h1 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h1><p>TensorFlow Datasets 提供了一系列可以和 TensorFlow 配合使用的数据集。</p>
+<ol>
+<li>查看tensorflow支持的数据集列表：<a href="https://www.tensorflow.org/datasets/catalog/overview?hl=zh-cn#all_datasets">数据集文档</a>。</li>
+<li>使用tensorflow数据集：<a href="https://www.tensorflow.org/datasets/overview?hl=zh-cn">开始使用</a>。</li>
+</ol>
+<p>使用<code>tfds.load</code>加载数据集，首次加载数据集会将数据集下载到本地，可以通过指定 <code>data_dir=</code> (默认是 <code>~/tensorflow_datasets/</code>) 来自定义数据保存/加载的路径。数据首次加载完成后，再调用这个接口就不会重复下载数据了。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow_datasets <span class="keyword">as</span> tfds</span><br><span class="line"></span><br><span class="line">mnist_train = tfds.load(name=<span class="string">&quot;mnist&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/89017996">Keras vs tf.keras: 在TensorFlow 2.0中有什么区别?</a></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>keras</category>
+      </categories>
+      <tags>
+        <tag>keras</tag>
+        <tag>tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>李宏毅机器学习笔记——Auto-Encoder</title>
     <url>/1b07/</url>
     <content><![CDATA[<p>Auto-Encoder是一种非监督学习，它的主要作用是对输入进行压缩表示。</p>
@@ -115,7 +143,13 @@
   <entry>
     <title>李宏毅机器学习作业</title>
     <url>/f535/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>记录李宏毅机器学习课程的作业。</p>
+<span id="more"></span>
+
+<p>需要安装的依赖包及对应的版本：</p>
+<figure class="highlight text"><figcaption><span>requirements.txt</span></figcaption><table><tr><td class="code"><pre><span class="line">numpy==1.19.5</span><br><span class="line">pandas==1.1.5</span><br><span class="line">matplotlib==3.3.4</span><br><span class="line">tensorflow-cpu==2.4.0</span><br><span class="line">keras==2.4.3</span><br></pre></td></tr></table></figure>
+<p>安装命令：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
@@ -220,32 +254,8 @@
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>李宏毅</tag>
         <tag>keras</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>李宏毅机器学习笔记——Regression</title>
-    <url>/71be/</url>
-    <content><![CDATA[<p>机器学习要做的就是找一个函数，Regression要做的就是找一个输出是数字（Scalar）的函数。例子：</p>
-<ul>
-<li>股票市场预测。输入是过去一段时间股票市场变动的情况，输出是明天股票的数值。</li>
-<li>自动驾驶。输入是无人车上各个传感器的数值，输出是方向盘的角度等。</li>
-<li>商品推荐。输入是使用者的购买记录、商品的特性等，输出是某个使用者购买某些商品的可能性。<span id="more"></span></li>
-</ul>
-<p>Regression过程：</p>
-<ol>
-<li>建立模型<br> 线性模型：$y = b + \sum w_ix_i$</li>
-<li>衡量模型好坏：Loss Function（L）<br> Loss函数输入是一个函数，输出是这个函数的好坏。$L(f) = \sum^n_{i=1} (\hat{y^i} - f(x^i))^2$。</li>
-<li>找一个最好的函数（Optimal问题）：最小化损失函数<br> 找到一组使得损失函数值最低的参数。通常的方法：Gradient Descent。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
         <tag>李宏毅</tag>
-        <tag>Regression</tag>
       </tags>
   </entry>
   <entry>
@@ -466,7 +476,17 @@
 </ol>
 </li>
 </ol>
-<p><strong>【参考资料】</strong><br>视频：<a href="https://www.bilibili.com/video/BV1it4y1X7Qd">seq2seq</a></p>
+<h1 id="实现英译汉"><a href="#实现英译汉" class="headerlink" title="实现英译汉"></a>实现英译汉</h1><p>序列的顺序十分重要，因此seq2seq通常使用LSTM作为编码器和解码器。</p>
+<p>使用attention和不使用attention的比较$^{[8]}$：</p>
+<ul>
+<li>没有attention机制的encoder-decoder结构通常把encoder的最后一个状态作为decoder的输入（可能作为初始化，也可能作为每一时刻的输入），但是encoder的state毕竟是有限的，存储不了太多的信息，对于decoder过程，每一个步骤都和之前的输入都没有关系了，只与这个传入的state有关。</li>
+<li>attention机制的引入之后，decoder根据时刻的不同，让每一时刻的输入都有所不同。</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>对英文进行特征提取<br> 将英文按顺序输入到LSTM中，LSTM会对英文进行特征提取。</li>
+<li>将提取到的特征传入到decoder</li>
+</ol>
+<p><strong>【参考资料】</strong><br>视频：<a href="https://www.bilibili.com/video/BV1it4y1X7Qd?p=40">seq2seq</a></p>
 <ol>
 <li>使用RNN生成有结构的对象相关论文<ul>
 <li>Image<ul>
@@ -498,6 +518,7 @@
 </ul>
 </li>
 <li>Scheduled sampling<br> Bengio S, Vinyals O, Jaitly N, et al. Scheduled sampling for sequence prediction with recurrent neural networks[J]. arXiv preprint arXiv:1506.03099, 2015.</li>
+<li><a href="https://blog.csdn.net/qq_35549634/article/details/106603346">tensorflow2.0(Keras)实现seq2seq+Attention模型的对话系统–实战篇（序列生成）</a></li>
 </ol>
 ]]></content>
       <categories>
@@ -659,6 +680,30 @@ Parallel Scheduled Sampling: <a href="https://arxiv.org/abs/1906.04331">Parallel
       <tags>
         <tag>李宏毅</tag>
         <tag>Transformer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>李宏毅机器学习笔记——Regression</title>
+    <url>/71be/</url>
+    <content><![CDATA[<p>机器学习要做的就是找一个函数，Regression要做的就是找一个输出是数字（Scalar）的函数。例子：</p>
+<ul>
+<li>股票市场预测。输入是过去一段时间股票市场变动的情况，输出是明天股票的数值。</li>
+<li>自动驾驶。输入是无人车上各个传感器的数值，输出是方向盘的角度等。</li>
+<li>商品推荐。输入是使用者的购买记录、商品的特性等，输出是某个使用者购买某些商品的可能性。<span id="more"></span></li>
+</ul>
+<p>Regression过程：</p>
+<ol>
+<li>建立模型<br> 线性模型：$y = b + \sum w_ix_i$</li>
+<li>衡量模型好坏：Loss Function（L）<br> Loss函数输入是一个函数，输出是这个函数的好坏。$L(f) = \sum^n_{i=1} (\hat{y^i} - f(x^i))^2$。</li>
+<li>找一个最好的函数（Optimal问题）：最小化损失函数<br> 找到一组使得损失函数值最低的参数。通常的方法：Gradient Descent。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>李宏毅</tag>
+        <tag>Regression</tag>
       </tags>
   </entry>
 </search>

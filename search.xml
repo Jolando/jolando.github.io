@@ -390,11 +390,11 @@
 <li>计算 $query$，即当前向量与 $W_{q}$ 的乘积。计算方法 ：$q_{i} = W_{q}a_{i}$。</li>
 <li>计算 $key$，即其他向量与 $W_{k}$ 的乘积 。计算方法：$k_{j} = W_{k}a_{j},  k\in[1, n]$。</li>
 <li>计算attetion score ($\alpha$)，即当前向量与其他向量的相关性。计算方法：$\alpha_{i, j} = q_{i}.k_{j}$。<em>通常情况下，也需要计算向量和自己的相关性</em> 。</li>
-<li>计算$\alpha’$。使用softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。$\alpha’<em>{i, j} = softmax(\alpha</em>{i, j})。</li>
+<li>计算$\alpha’$。使用softmax函数激活$\alpha$得到$\alpha’$（也可以使用其他激活函数）。$\alpha_{i, j}’ = softmax(\alpha_{i, j})$。</li>
 <li>计算 $value$ 。根据$\alpha’$抽取sequence中重要信息。计算方法 ：$v_{j} = W_{v}a_{j}$</li>
-<li>计算输出向量$b_{i}$。计算方法 ：$b_{i} =\sum_{j=1}^n\alpha’<em>{i, j}.v</em>{j}$。</li>
+<li>计算输出向量$b_{i}$。计算方法 ：$b_{i} =\sum_{j=1}^n\alpha_{i, j}’.v_{j}$。</li>
 </ol>
-<p>==self-attention中输出向量是同时计算出来的，不需要按序计算。==<br>以上步骤使用矩阵操作的方式可以简单描述为：</p>
+<p><mark>self-attention中输出向量是同时计算出来的，不需要按序计算。</mark><br>以上步骤使用矩阵操作的方式可以简单描述为：</p>
 <ol>
 <li>根据输入向量<code>I</code>计算 <code>Q、K、V</code>。</li>
 <li>计算分数。</li>

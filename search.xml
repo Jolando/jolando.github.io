@@ -4,8 +4,13 @@
     <title>powershell中无法使用conda activate</title>
     <url>/883c/</url>
     <content><![CDATA[<p>环境：win10</p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>powershell中无法使用conda activate<br><span id="more"></span></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure><br>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开终端时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --set auto_activate_base false</span><br></pre></td></tr></table></figure></p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>powershell中无法使用conda activate</p>
+<span id="more"></span>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure>
+<p>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开终端时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --set auto_activate_base false</span><br></pre></td></tr></table></figure>
+
 <p>【参考资料】</p>
 <ol>
 <li><a href="https://stackoverflow.com/questions/64149680/how-to-activate-conda-environment-from-powershell">How to activate conda environment from powershell?</a></li>
@@ -748,20 +753,5 @@ Parallel Scheduled Sampling: <a href="https://arxiv.org/abs/1906.04331">Parallel
         <tag>tensorflow</tag>
         <tag>tensor</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>test</title>
-    <url>/f82e/</url>
-    <content><![CDATA[<p>test</p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test</title>
-    <url>/f82e/</url>
-    <content><![CDATA[<p>test</p>
-]]></content>
   </entry>
 </search>

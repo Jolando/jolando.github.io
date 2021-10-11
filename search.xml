@@ -26,7 +26,7 @@
   </entry>
   <entry>
     <title>keras学习笔记一</title>
-    <url>/undefined.html</url>
+    <url>/learn-keras1.html</url>
     <content><![CDATA[<p>Tensorflow Version:  2.4.0</p>
 <p><strong>训练神经网络应该使用keras还是tf.keras？</strong></p>
 <p>从keras2.3.0版本开始，keras已经和tf.keras同步，但是开发人员应该在TensorFlow2.0上使用<strong>tf.keras</strong>，因为后续的keras软件包将仅支持错误修复，且后端将仅支持tensorflow。$^{[1]}$。</p>
@@ -54,57 +54,8 @@
       </tags>
   </entry>
   <entry>
-    <title>使用hexo搭建个人博客</title>
-    <url>/undefined.html</url>
-    <content><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。更多介绍参考<a href="https://hexo.io/zh-cn/docs/">官方文档</a>。<span id="more"></span></p>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
-<li>hexo clean<br>清除缓存文件<code>db.json</code>和已生成的静态文件<code>public</code>, 网站显示异常时可以执行这条命令试试</li>
-<li>hexo s<br>启动本地服务器，用于预览主题。默认地址： <a href="http://localhost:4000/">http://localhost:4000/</a></li>
-<li>hexo new [name]<br>新建一篇标题为 [name] 的文章,文件一般在<code>source/_post</code>文件夹下</li>
-<li>hexo g<br>生成网站静态文件到默认设置的<code>public</code>文件夹</li>
-<li>hexo d<br>自动生成网站静态文件，并部署到设定的仓库。</li>
-</ol>
-<p>在项目根目录下打开<code>git bash</code>，使用以下命令部署项目：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-<h1 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h1><p>推荐使用<code>HexoEditor</code>编辑器写博客。在这里<a href="https://github.com/zhuzhuyule/HexoEditor/releases">下载</a>安装包，使用方法参考<a href="https://akilar.top/posts/1da4f99e/">这篇文章</a>。</p>
-<ol>
-<li>写文章。<br>打开菜单栏，选择【新建Post】（快捷键<code>Ctr+H</code>），使用<code>post模板</code>新建一个文件。</li>
-<li>部署。<br>step 1:【编辑窗口右键】-&gt;【Hexo】-&gt;【清除缓存文件】<br>step 2:【编辑窗口右键】-&gt;【Hexo】-&gt;【一键部署】</li>
-</ol>
-<h1 id="hexo-插件"><a href="#hexo-插件" class="headerlink" title="hexo 插件"></a>hexo 插件</h1><h2 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h2><p>博客压缩：hexo-neat<br>图片懒加载：hexo-lazyload-image<br><a href="https://evanhongyousan.github.io/2020/06/26/hexo-next-github-page-performance/">配置使用jsDelivr cdn、图片懒加载</a><br>安装插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-neat --save</span><br></pre></td></tr></table></figure>
-<p>修改配置文件</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 博文压缩</span></span><br><span class="line"><span class="attr">neat_enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 压缩html</span></span><br><span class="line"><span class="attr">neat_html:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line"><span class="comment"># 压缩css  </span></span><br><span class="line"><span class="attr">neat_css:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/*.min.css&#x27;</span></span><br><span class="line"><span class="comment"># 压缩js</span></span><br><span class="line"><span class="attr">neat_js:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mangle:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">output:</span></span><br><span class="line">  <span class="attr">compress:</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/*.min.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/jquery.fancybox.pack.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/index.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/fireworks.js&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="sitemap生成"><a href="#sitemap生成" class="headerlink" title="sitemap生成"></a>sitemap生成</h2><p>google：hexo-generator-sitemap<br>baidu：hexo-generator-baidu-sitemap<br>详细配置参考：<a href="https://eericzeng.github.io/2019/07/14/hexo%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9sitemap%E7%9A%84%E4%BD%BF%E7%94%A8/">hexo博客站点sitemap的使用</a></p>
-<h2 id="生成短链接"><a href="#生成短链接" class="headerlink" title="生成短链接"></a>生成短链接</h2><p>hexo-abbrlink<br>安装插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-<p>修改配置文件</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:abbrlink/</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc16</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h1><h2 id="文章中添加图片"><a href="#文章中添加图片" class="headerlink" title="文章中添加图片"></a>文章中添加图片</h2><p>图片可以放在文章自己的目录中。文章的目录可以通过配置_config.yml来生成。</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>将<code>_config.yml</code>文件中的配置项<code>post_asset_folder</code>设为<code>true</code>后，执行命令<code>hexo new post_name</code>，在<code>source/_posts</code>中会生成文章<code>post_name.md</code>和同名文件夹<code>post_name</code>。将图片资源放在post_name中，文章就可以使用相对路径引用图片资源了。</p>
-<figure class="highlight text"><figcaption><span>post_name.md</span></figcaption><table><tr><td class="code"><pre><span class="line">![self-attention结构](.\xxx.png#pic_center)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>CDN引用</strong><br>除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。在CDN中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
-</blockquote>
-<h2 id="修改文章模板"><a href="#修改文章模板" class="headerlink" title="修改文章模板"></a>修改文章模板</h2><p>模板文件在hexo根目录下的<code>scaffolds</code>目录中：<code>draft.md</code>、<code>page.md</code>和<code>post.md</code>。</p>
-<p>参考资料：</p>
-<ol>
-<li><a href="https://segmentfault.com/a/1190000023346633">保姆级——小白如何搭建自己的博客（Hexo+Github Pages）</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/109382792">如何快速搭建自己的博客平台</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>李宏毅机器学习笔记——Auto-Encoder</title>
-    <url>/undefined.html</url>
+    <url>/lhy-auto-encoder.html</url>
     <content><![CDATA[<p>Auto-Encoder是一种非监督学习，它的主要作用是对输入进行压缩表示。</p>
 <span id="more"></span>
 
@@ -168,7 +119,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习作业</title>
-    <url>/undefined.html</url>
+    <url>/lhy-exercise.html</url>
     <content><![CDATA[<p>记录李宏毅机器学习课程的作业。</p>
 <span id="more"></span>
 
@@ -185,7 +136,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记——GAN</title>
-    <url>/undefined.html</url>
+    <url>/lhy-gan.html</url>
     <content><![CDATA[<p>GAN（Generative Adversarial Network）全称是对抗生成网络，可以用来生成一些东西，例如图片或者句子等。</p>
 <p>GAN相关技术：<a href="https://github.com/hindupuravinash/the-gan-zoo">the-gan-zoo</a></p>
 <span id="more"></span>
@@ -257,7 +208,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记——keras</title>
-    <url>/undefined.html</url>
+    <url>/lhy-keras.html</url>
     <content><![CDATA[<p>介绍使用keras建立神经网络的步骤。</p>
 <p>keras版本：2.0</p>
 <span id="more"></span>
@@ -286,7 +237,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记——Regression</title>
-    <url>/undefined.html</url>
+    <url>/lhy-regression.html</url>
     <content><![CDATA[<p>机器学习要做的就是找一个函数，Regression要做的就是找一个输出是数字（Scalar）的函数。例子：</p>
 <ul>
 <li>股票市场预测。输入是过去一段时间股票市场变动的情况，输出是明天股票的数值。</li>
@@ -310,7 +261,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记——自注意力机制</title>
-    <url>/undefined.html</url>
+    <url>/lhy-self-attention.html</url>
     <content><![CDATA[<p>self-attention也是一个常见的neural network框架，用来解决输入是一组向量并且向量的个数是不确定的问题。<span id="more"></span></p>
 <h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><ul>
 <li>文本处理</li>
@@ -415,7 +366,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记——RNN</title>
-    <url>/undefined.html</url>
+    <url>/lhy-rnn.html</url>
     <content><![CDATA[<p>介绍RNN和LSTM的基本概念和运作过程。</p>
 <span id="more"></span>
 <h1 id="RNN及其变体"><a href="#RNN及其变体" class="headerlink" title="RNN及其变体"></a>RNN及其变体</h1><h2 id="Recurrent-Neural-Network-RNN-介绍"><a href="#Recurrent-Neural-Network-RNN-介绍" class="headerlink" title="Recurrent Neural Network(RNN)介绍"></a>Recurrent Neural Network(RNN)介绍</h2><h3 id="RNN基本概念"><a href="#RNN基本概念" class="headerlink" title="RNN基本概念"></a>RNN基本概念</h3><p>RNN是带有<strong>记忆单元</strong>的前馈神经网络。在RNN里面，隐藏层的每次输出都会被保存到memory里面，下一次有输入时，隐藏层除了考虑输入层的数据，还会考虑memory里面的值。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="./rnn_arch.jpg" alt="RNN网络结构"><br><strong>RNN只能记得前一个时间点的数据。</strong></p>
@@ -489,7 +440,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记_seq2seq</title>
-    <url>/undefined.html</url>
+    <url>/lhy-seq2seq.html</url>
     <content><![CDATA[<p>使用神经网络生成有结构的对象$^{[1]}$。例如：</p>
 <ul>
 <li>生成句子。使用RNN每次生成一个字符/单词。</li>
@@ -581,7 +532,7 @@
   </entry>
   <entry>
     <title>Tensorflow2.0实现线性回归</title>
-    <url>/undefined.html</url>
+    <url>/tf-linearregression.html</url>
     <content><![CDATA[<p>使用<code>TensorFlow</code>实现一个简单的线性回归模型，以熟悉<code>TensorFlow</code>的使用方法。参考<a href="https://www.tensorflow.org/guide/basic_training_loops">官方文档</a>。</p>
 <span id="more"></span>
 <p>实验环境：</p>
@@ -619,7 +570,7 @@
   </entry>
   <entry>
     <title>Tensorflow基础操作</title>
-    <url>/undefined.html</url>
+    <url>/tf-prerequisite.html</url>
     <content><![CDATA[<p>介绍Tensorflow的一些基础操作。</p>
 <span id="more"></span>
 <h1 id="张量Tensor"><a href="#张量Tensor" class="headerlink" title="张量Tensor"></a>张量Tensor</h1><p>张量与numpy的<code>np.arrays</code>相似。就像 Python 数值和字符串一样，所有张量都是不可变的。详细介绍参考<a href="https://www.tensorflow.org/guide/tensor">官方文档</a>。</p>
@@ -660,7 +611,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记——Transfer-learning</title>
-    <url>/undefined.html</url>
+    <url>/lhy-transfer-learning.html</url>
     <content><![CDATA[<p>迁移学习适用于没有与当前任务直接相关数据的情形。例如：</p>
 <ul>
 <li>语音识别问题中，想要做某种方言的语音识别，但是方言的数据比较难获取，而汉语、英语等的数据很容易获取到。</li>
@@ -708,7 +659,7 @@
   </entry>
   <entry>
     <title>李宏毅机器学习笔记——Transformer</title>
-    <url>/undefined.html</url>
+    <url>/lhy-transformer.html</url>
     <content><![CDATA[<p>Transformer是一个sequence-to-sequence模型，它的输入是一个序列，输出也是一个序列，输出序列的长度由模型自己决定。</p>
 <span id="more"></span>
 <h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><ol>
@@ -809,6 +760,76 @@ Parallel Scheduled Sampling: <a href="https://arxiv.org/abs/1906.04331">Parallel
       <tags>
         <tag>李宏毅</tag>
         <tag>Transformer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修改hexo生成html文件名的规则</title>
+    <url>/modify-the-rules-of-hexo-to-generate-html-file-names.html</url>
+    <content><![CDATA[<p>在hexo的配置文件中修改自动生成文件名的规则。<span id="more"></span></p>
+<ol>
+<li>修改Hexo的根配置文件_config.yml <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:filename.html</span></span><br></pre></td></tr></table></figure>
+ <code>:filename.html</code>是HTML的命名格式，其中<code>filename</code>是<code>.md</code>文件中文章头部的变量。 <figure class="highlight text"><figcaption><span>a.md</span></figcaption><table><tr><td class="code"><pre><span class="line">filename: modify-the-rules-of-hexo-to-generate-html-file-names</span><br></pre></td></tr></table></figure></li>
+<li>修改文章模板，在模板中增加<code>filename</code>属性。<br> 文章模板在<code>scaffolds</code>目录中。 <figure class="highlight text"><figcaption><span>scaffolds/post.md</span></figcaption><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">tags: </span><br><span class="line">    - </span><br><span class="line">categories: </span><br><span class="line">    - </span><br><span class="line">keywords: </span><br><span class="line">    - </span><br><span class="line">filename: </span><br><span class="line">---</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>【参考资料】</p>
+<ol>
+<li><a href="https://cloud.tencent.com/developer/article/1463509">修改Hexo自动生成的HTML文件名</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用hexo搭建个人博客</title>
+    <url>/use-hexo-to-build-a-personal-blog.html</url>
+    <content><![CDATA[<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。更多介绍参考<a href="https://hexo.io/zh-cn/docs/">官方文档</a>。<span id="more"></span></p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><ol>
+<li>hexo clean<br>清除缓存文件<code>db.json</code>和已生成的静态文件<code>public</code>, 网站显示异常时可以执行这条命令试试</li>
+<li>hexo s<br>启动本地服务器，用于预览主题。默认地址： <a href="http://localhost:4000/">http://localhost:4000/</a></li>
+<li>hexo new [name]<br>新建一篇标题为 [name] 的文章,文件一般在<code>source/_post</code>文件夹下</li>
+<li>hexo g<br>生成网站静态文件到默认设置的<code>public</code>文件夹</li>
+<li>hexo d<br>自动生成网站静态文件，并部署到设定的仓库。</li>
+</ol>
+<p>在项目根目录下打开<code>git bash</code>，使用以下命令部署项目：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<h1 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h1><p>推荐使用<code>HexoEditor</code>编辑器写博客。在这里<a href="https://github.com/zhuzhuyule/HexoEditor/releases">下载</a>安装包，使用方法参考<a href="https://akilar.top/posts/1da4f99e/">这篇文章</a>。</p>
+<ol>
+<li>写文章。<br>打开菜单栏，选择【新建Post】（快捷键<code>Ctr+H</code>），使用<code>post模板</code>新建一个文件。</li>
+<li>部署。<br>step 1:【编辑窗口右键】-&gt;【Hexo】-&gt;【清除缓存文件】<br>step 2:【编辑窗口右键】-&gt;【Hexo】-&gt;【一键部署】</li>
+</ol>
+<h1 id="hexo-插件"><a href="#hexo-插件" class="headerlink" title="hexo 插件"></a>hexo 插件</h1><h2 id="博客优化"><a href="#博客优化" class="headerlink" title="博客优化"></a>博客优化</h2><p>博客压缩：hexo-neat<br>图片懒加载：hexo-lazyload-image<br><a href="https://evanhongyousan.github.io/2020/06/26/hexo-next-github-page-performance/">配置使用jsDelivr cdn、图片懒加载</a><br>安装插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-neat --save</span><br></pre></td></tr></table></figure>
+<p>修改配置文件</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 博文压缩</span></span><br><span class="line"><span class="attr">neat_enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 压缩html</span></span><br><span class="line"><span class="attr">neat_html:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line"><span class="comment"># 压缩css  </span></span><br><span class="line"><span class="attr">neat_css:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/*.min.css&#x27;</span></span><br><span class="line"><span class="comment"># 压缩js</span></span><br><span class="line"><span class="attr">neat_js:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">mangle:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">output:</span></span><br><span class="line">  <span class="attr">compress:</span></span><br><span class="line">  <span class="attr">exclude:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/*.min.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/jquery.fancybox.pack.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/index.js&#x27;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;**/fireworks.js&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="sitemap生成"><a href="#sitemap生成" class="headerlink" title="sitemap生成"></a>sitemap生成</h2><p>google：hexo-generator-sitemap<br>baidu：hexo-generator-baidu-sitemap<br>详细配置参考：<a href="https://eericzeng.github.io/2019/07/14/hexo%E5%8D%9A%E5%AE%A2%E7%AB%99%E7%82%B9sitemap%E7%9A%84%E4%BD%BF%E7%94%A8/">hexo博客站点sitemap的使用</a></p>
+<h2 id="生成短链接"><a href="#生成短链接" class="headerlink" title="生成短链接"></a>生成短链接</h2><p>hexo-abbrlink<br>安装插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+<p>修改配置文件</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># permalink: :year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:abbrlink/</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc16</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h1><h2 id="文章中添加图片"><a href="#文章中添加图片" class="headerlink" title="文章中添加图片"></a>文章中添加图片</h2><p>图片可以放在文章自己的目录中。文章的目录可以通过配置_config.yml来生成。</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>将<code>_config.yml</code>文件中的配置项<code>post_asset_folder</code>设为<code>true</code>后，执行命令<code>hexo new post_name</code>，在<code>source/_posts</code>中会生成文章<code>post_name.md</code>和同名文件夹<code>post_name</code>。将图片资源放在post_name中，文章就可以使用相对路径引用图片资源了。</p>
+<figure class="highlight text"><figcaption><span>post_name.md</span></figcaption><table><tr><td class="code"><pre><span class="line">![self-attention结构](.\xxx.png#pic_center)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>CDN引用</strong><br>除了在本地存储图片，还可以将图片上传到一些免费的CDN服务中。在CDN中上传图片后，会生成对应的url地址，将地址直接拿来引用即可。</p>
+</blockquote>
+<h2 id="修改文章模板"><a href="#修改文章模板" class="headerlink" title="修改文章模板"></a>修改文章模板</h2><p>模板文件在hexo根目录下的<code>scaffolds</code>目录中：<code>draft.md</code>、<code>page.md</code>和<code>post.md</code>。</p>
+<p>参考资料：</p>
+<ol>
+<li><a href="https://segmentfault.com/a/1190000023346633">保姆级——小白如何搭建自己的博客（Hexo+Github Pages）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/109382792">如何快速搭建自己的博客平台</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>

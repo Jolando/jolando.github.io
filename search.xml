@@ -3,7 +3,10 @@
   <entry>
     <title>powershell中无法使用conda activate</title>
     <url>/883c/</url>
-    <content><![CDATA[<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：</p>
+    <content><![CDATA[<p>环境：win10</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>powershell中无法使用conda activate</p>
+<span id="more"></span>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure>
 <p>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开中断时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --set auto_activate_base false</span><br></pre></td></tr></table></figure>
@@ -95,6 +98,23 @@
       </tags>
   </entry>
   <entry>
+    <title>李宏毅机器学习作业</title>
+    <url>/f535/</url>
+    <content><![CDATA[<p>记录李宏毅机器学习课程的作业。</p>
+<span id="more"></span>
+
+<p>需要安装的依赖包及对应的版本：</p>
+<figure class="highlight text"><figcaption><span>requirements.txt</span></figcaption><table><tr><td class="code"><pre><span class="line">numpy==1.19.5</span><br><span class="line">pandas==1.1.5</span><br><span class="line">matplotlib==3.3.4</span><br><span class="line">tensorflow-cpu==2.4.0</span><br><span class="line">keras==2.4.3</span><br></pre></td></tr></table></figure>
+<p>安装命令：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>李宏毅</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>李宏毅机器学习笔记——Auto-Encoder</title>
     <url>/1b07/</url>
     <content><![CDATA[<p>Auto-Encoder是一种非监督学习，它的主要作用是对输入进行压缩表示。</p>
@@ -154,25 +174,8 @@
         <category>机器学习</category>
       </categories>
       <tags>
+        <tag>李宏毅</tag>
         <tag>Auto-Encoder</tag>
-        <tag>李宏毅</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>李宏毅机器学习作业</title>
-    <url>/f535/</url>
-    <content><![CDATA[<p>记录李宏毅机器学习课程的作业。</p>
-<span id="more"></span>
-
-<p>需要安装的依赖包及对应的版本：</p>
-<figure class="highlight text"><figcaption><span>requirements.txt</span></figcaption><table><tr><td class="code"><pre><span class="line">numpy==1.19.5</span><br><span class="line">pandas==1.1.5</span><br><span class="line">matplotlib==3.3.4</span><br><span class="line">tensorflow-cpu==2.4.0</span><br><span class="line">keras==2.4.3</span><br></pre></td></tr></table></figure>
-<p>安装命令：</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt -i https://pypi.douban.com/simple/</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>李宏毅</tag>
       </tags>
   </entry>
   <entry>

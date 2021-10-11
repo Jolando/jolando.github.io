@@ -32,11 +32,7 @@
 <h2 id="本地修改部署到github"><a href="#本地修改部署到github" class="headerlink" title="本地修改部署到github"></a>本地修改部署到github</h2><p>修改本地配置文件或者编写文章后，需要使用以下命令部署到github。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 <h1 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h1><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><ol>
-<li>HexoEditor<ol>
-<li><a href="https://github.com/zhuzhuyule/HexoEditor/releases">下载HexoEditor安装包</a></li>
-<li><a href="https://akilar.top/posts/1da4f99e/">使用HexoEditor</a></li>
-</ol>
-</li>
+<li>HexoEditor（推荐使用）<br>下载<a href="https://github.com/zhuzhuyule/HexoEditor/releases">HexoEditor安装包</a>，使用方式参考<a href="https://akilar.top/posts/1da4f99e/">使用文档</a>。</li>
 <li>Hexo-admin插件</li>
 </ol>
 <h2 id="文章中添加图片"><a href="#文章中添加图片" class="headerlink" title="文章中添加图片"></a>文章中添加图片</h2><p>图片可以放在文章自己的目录中。文章的目录可以通过配置_config.yml来生成。</p>

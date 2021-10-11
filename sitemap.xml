@@ -2,119 +2,119 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yapingwu.github.io/use-matplotlib-to-draw-subplots</loc>
+    <loc>https://yapingwu.github.io/modify-the-rules-of-hexo-to-generate-html-file-names.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/modify-the-rules-of-hexo-to-generate-html-file-names</loc>
+    <loc>https://yapingwu.github.io/use-matplotlib-to-draw-subplots.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-self-attention</loc>
+    <loc>https://yapingwu.github.io/lhy-self-attention.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/tf-linearregression</loc>
+    <loc>https://yapingwu.github.io/tf-linearregression.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/tf-prerequisite</loc>
+    <loc>https://yapingwu.github.io/tf-prerequisite.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-seq2seq</loc>
+    <loc>https://yapingwu.github.io/lhy-seq2seq.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-exercise</loc>
+    <loc>https://yapingwu.github.io/lhy-exercise.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-keras</loc>
+    <loc>https://yapingwu.github.io/lhy-keras.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-regression</loc>
+    <loc>https://yapingwu.github.io/lhy-regression.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-gan</loc>
+    <loc>https://yapingwu.github.io/lhy-gan.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-transfer-learning</loc>
+    <loc>https://yapingwu.github.io/lhy-transfer-learning.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-rnn</loc>
+    <loc>https://yapingwu.github.io/lhy-rnn.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-auto-encoder</loc>
+    <loc>https://yapingwu.github.io/lhy-auto-encoder.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/lhy-transformer</loc>
+    <loc>https://yapingwu.github.io/lhy-transformer.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/use-hexo-to-build-a-personal-blog</loc>
+    <loc>https://yapingwu.github.io/use-hexo-to-build-a-personal-blog.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/learn-keras1</loc>
+    <loc>https://yapingwu.github.io/learn-keras1.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/how-to-activate-conda-environment-from-powershell</loc>
+    <loc>https://yapingwu.github.io/how-to-activate-conda-environment-from-powershell.html</loc>
     
     <lastmod>2021-10-11</lastmod>
     
@@ -151,20 +151,6 @@
 
   
   <url>
-    <loc>https://yapingwu.github.io/tags/powershell/</loc>
-    <lastmod>2021-10-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yapingwu.github.io/tags/conda/</loc>
-    <lastmod>2021-10-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yapingwu.github.io/tags/keras/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
@@ -173,6 +159,20 @@
   
   <url>
     <loc>https://yapingwu.github.io/tags/tensorflow/</loc>
+    <lastmod>2021-10-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yapingwu.github.io/tags/powershell/</loc>
+    <lastmod>2021-10-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yapingwu.github.io/tags/conda/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -293,14 +293,14 @@
 
   
   <url>
-    <loc>https://yapingwu.github.io/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://yapingwu.github.io/categories/keras/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/categories/keras/</loc>
+    <loc>https://yapingwu.github.io/categories/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

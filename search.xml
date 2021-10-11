@@ -8,7 +8,7 @@
 <span id="more"></span>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure>
-<p>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开中断时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。</p>
+<p>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开终端时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --set auto_activate_base false</span><br></pre></td></tr></table></figure>
 
 <p>【参考资料】</p>

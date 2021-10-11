@@ -151,6 +151,13 @@
   </url>
   
   <url>
+    <loc>https://yapingwu.github.io/tags/hexo/</loc>
+    <lastmod>2021-10-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://yapingwu.github.io/tags/keras/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
@@ -159,13 +166,6 @@
   
   <url>
     <loc>https://yapingwu.github.io/tags/tensorflow/</loc>
-    <lastmod>2021-10-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yapingwu.github.io/tags/hexo/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -221,14 +221,14 @@
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/tags/Transfer-learning/</loc>
+    <loc>https://yapingwu.github.io/tags/Seq2seq/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/tags/Seq2seq/</loc>
+    <loc>https://yapingwu.github.io/tags/Transfer-learning/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -272,14 +272,14 @@
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/categories/keras/</loc>
+    <loc>https://yapingwu.github.io/categories/hexo/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://yapingwu.github.io/categories/hexo/</loc>
+    <loc>https://yapingwu.github.io/categories/keras/</loc>
     <lastmod>2021-10-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

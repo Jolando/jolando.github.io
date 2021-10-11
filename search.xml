@@ -3,8 +3,9 @@
   <entry>
     <title>powershell中无法使用conda activate</title>
     <url>/883c/</url>
-    <content><![CDATA[<p>环境：win10<span id="more"></span></p>
+    <content><![CDATA[<p>环境：win10</p>
 <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>powershell中无法使用conda activate</p>
+<span id="more"></span>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure>
 <p>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开终端时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。</p>
@@ -21,35 +22,6 @@
       <tags>
         <tag>powershell</tag>
         <tag>conda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>keras学习笔记一</title>
-    <url>/f50f/</url>
-    <content><![CDATA[<p>Tensorflow Version:  2.4.0</p>
-<p><strong>训练神经网络应该使用keras还是tf.keras？</strong></p>
-<p>从keras2.3.0版本开始，keras已经和tf.keras同步，但是开发人员应该在TensorFlow2.0上使用<strong>tf.keras</strong>，因为后续的keras软件包将仅支持错误修复，且后端将仅支持tensorflow。$^{[1]}$。</p>
-<span id="more"></span>
-<h1 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h1><p>TensorFlow Datasets 提供了一系列可以和 TensorFlow 配合使用的数据集。</p>
-<ol>
-<li>查看tensorflow支持的数据集列表：<a href="https://www.tensorflow.org/datasets/catalog/overview?hl=zh-cn#all_datasets">数据集文档</a>。</li>
-<li>使用tensorflow数据集：<a href="https://www.tensorflow.org/datasets/overview?hl=zh-cn">开始使用</a>。</li>
-</ol>
-<p>使用<code>tfds.load</code>加载数据集，首次加载数据集会将数据集下载到本地，可以通过指定 <code>data_dir=</code> (默认是 <code>~/tensorflow_datasets/</code>) 来自定义数据保存/加载的路径。数据首次加载完成后，再调用这个接口就不会重复下载数据了。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow_datasets <span class="keyword">as</span> tfds</span><br><span class="line"></span><br><span class="line">mnist_train = tfds.load(name=<span class="string">&quot;mnist&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ol>
-<li><a href="https://zhuanlan.zhihu.com/p/89017996">Keras vs tf.keras: 在TensorFlow 2.0中有什么区别?</a></li>
-<li></li>
-</ol>
-]]></content>
-      <categories>
-        <category>keras</category>
-      </categories>
-      <tags>
-        <tag>keras</tag>
-        <tag>tensorflow</tag>
       </tags>
   </entry>
   <entry>
@@ -94,6 +66,35 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>keras学习笔记一</title>
+    <url>/f50f/</url>
+    <content><![CDATA[<p>Tensorflow Version:  2.4.0</p>
+<p><strong>训练神经网络应该使用keras还是tf.keras？</strong></p>
+<p>从keras2.3.0版本开始，keras已经和tf.keras同步，但是开发人员应该在TensorFlow2.0上使用<strong>tf.keras</strong>，因为后续的keras软件包将仅支持错误修复，且后端将仅支持tensorflow。$^{[1]}$。</p>
+<span id="more"></span>
+<h1 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h1><p>TensorFlow Datasets 提供了一系列可以和 TensorFlow 配合使用的数据集。</p>
+<ol>
+<li>查看tensorflow支持的数据集列表：<a href="https://www.tensorflow.org/datasets/catalog/overview?hl=zh-cn#all_datasets">数据集文档</a>。</li>
+<li>使用tensorflow数据集：<a href="https://www.tensorflow.org/datasets/overview?hl=zh-cn">开始使用</a>。</li>
+</ol>
+<p>使用<code>tfds.load</code>加载数据集，首次加载数据集会将数据集下载到本地，可以通过指定 <code>data_dir=</code> (默认是 <code>~/tensorflow_datasets/</code>) 来自定义数据保存/加载的路径。数据首次加载完成后，再调用这个接口就不会重复下载数据了。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow_datasets <span class="keyword">as</span> tfds</span><br><span class="line"></span><br><span class="line">mnist_train = tfds.load(name=<span class="string">&quot;mnist&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/89017996">Keras vs tf.keras: 在TensorFlow 2.0中有什么区别?</a></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>keras</category>
+      </categories>
+      <tags>
+        <tag>keras</tag>
+        <tag>tensorflow</tag>
       </tags>
   </entry>
   <entry>
@@ -482,54 +483,6 @@
       </tags>
   </entry>
   <entry>
-    <title>李宏毅机器学习笔记——Transfer-learning</title>
-    <url>/8eae/</url>
-    <content><![CDATA[<p>迁移学习适用于没有与当前任务直接相关数据的情形。例如：</p>
-<ul>
-<li>语音识别问题中，想要做某种方言的语音识别，但是方言的数据比较难获取，而汉语、英语等的数据很容易获取到。</li>
-<li>图像识别问题中，想要做医学方面的图像识别，但是医学方面的图像数据很难获取，而猫、狗之类的图片很好获取。</li>
-</ul>
-<span id="more"></span>
-<h1 id="迁移学习的方法"><a href="#迁移学习的方法" class="headerlink" title="迁移学习的方法"></a>迁移学习的方法</h1><blockquote>
-<p>源数据（source data）：跟当前任务没有直接关系的数据。<br>目标数据（target data）：跟当前任务直接相关的数据。</p>
-</blockquote>
-<h2 id="源数据有标签，目标数据有标签"><a href="#源数据有标签，目标数据有标签" class="headerlink" title="源数据有标签，目标数据有标签"></a>源数据<strong>有</strong>标签，目标数据<strong>有</strong>标签</h2><p>任务描述；</p>
-<ul>
-<li>目标数据：$(x^t, y^t)$，数据量很少</li>
-<li>源数据：$(x^s, y^s)$，数据量很多</li>
-</ul>
-<ol>
-<li>Fine-tuning<br>例子：语音辨识系统</li>
-</ol>
-<p>某个人的语音数据很少（目标数据），很多人的语音数据很多（源数据）。</p>
-<p>做法：用源数据训练模型，用目标数据<strong>微调</strong>（fine-tune）模型</p>
-<ul>
-<li>问题：小心过拟合<ul>
-<li>Conservative Training。</li>
-<li>Layer Transfer$^{[1]}$。使用源数据训练好模型后，从中复制一些layer出来，然后用目标数据训练没有复制的layer。<ul>
-<li>那些层应该被复制？语音（后几层）、Image（前几层）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>Multitask Learning</li>
-</ol>
-<h2 id="源数据无标签，目标数据有标签"><a href="#源数据无标签，目标数据有标签" class="headerlink" title="源数据无标签，目标数据有标签"></a>源数据<strong>无</strong>标签，目标数据<strong>有</strong>标签</h2><h2 id="源数据有标签，目标数据无标签"><a href="#源数据有标签，目标数据无标签" class="headerlink" title="源数据有标签，目标数据无标签"></a>源数据<strong>有</strong>标签，目标数据<strong>无</strong>标签</h2><h2 id="源数据无标签，目标数据无标签"><a href="#源数据无标签，目标数据无标签" class="headerlink" title="源数据无标签，目标数据无标签"></a>源数据<strong>无</strong>标签，目标数据<strong>无</strong>标签</h2><hr>
-<ol>
-<li>Yosinski J, Clune J, Bengio Y, et al. How transferable are features in deep neural networks?[J]. arXiv preprint arXiv:1411.1792, 2014.</li>
-</ol>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>李宏毅</tag>
-        <tag>Transfer-learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>李宏毅机器学习笔记_seq2seq</title>
     <url>/e7/</url>
     <content><![CDATA[<p>使用神经网络生成有结构的对象$^{[1]}$。例如：</p>
@@ -619,6 +572,54 @@
       <tags>
         <tag>李宏毅</tag>
         <tag>Seq2seq</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>李宏毅机器学习笔记——Transfer-learning</title>
+    <url>/8eae/</url>
+    <content><![CDATA[<p>迁移学习适用于没有与当前任务直接相关数据的情形。例如：</p>
+<ul>
+<li>语音识别问题中，想要做某种方言的语音识别，但是方言的数据比较难获取，而汉语、英语等的数据很容易获取到。</li>
+<li>图像识别问题中，想要做医学方面的图像识别，但是医学方面的图像数据很难获取，而猫、狗之类的图片很好获取。</li>
+</ul>
+<span id="more"></span>
+<h1 id="迁移学习的方法"><a href="#迁移学习的方法" class="headerlink" title="迁移学习的方法"></a>迁移学习的方法</h1><blockquote>
+<p>源数据（source data）：跟当前任务没有直接关系的数据。<br>目标数据（target data）：跟当前任务直接相关的数据。</p>
+</blockquote>
+<h2 id="源数据有标签，目标数据有标签"><a href="#源数据有标签，目标数据有标签" class="headerlink" title="源数据有标签，目标数据有标签"></a>源数据<strong>有</strong>标签，目标数据<strong>有</strong>标签</h2><p>任务描述；</p>
+<ul>
+<li>目标数据：$(x^t, y^t)$，数据量很少</li>
+<li>源数据：$(x^s, y^s)$，数据量很多</li>
+</ul>
+<ol>
+<li>Fine-tuning<br>例子：语音辨识系统</li>
+</ol>
+<p>某个人的语音数据很少（目标数据），很多人的语音数据很多（源数据）。</p>
+<p>做法：用源数据训练模型，用目标数据<strong>微调</strong>（fine-tune）模型</p>
+<ul>
+<li>问题：小心过拟合<ul>
+<li>Conservative Training。</li>
+<li>Layer Transfer$^{[1]}$。使用源数据训练好模型后，从中复制一些layer出来，然后用目标数据训练没有复制的layer。<ul>
+<li>那些层应该被复制？语音（后几层）、Image（前几层）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>Multitask Learning</li>
+</ol>
+<h2 id="源数据无标签，目标数据有标签"><a href="#源数据无标签，目标数据有标签" class="headerlink" title="源数据无标签，目标数据有标签"></a>源数据<strong>无</strong>标签，目标数据<strong>有</strong>标签</h2><h2 id="源数据有标签，目标数据无标签"><a href="#源数据有标签，目标数据无标签" class="headerlink" title="源数据有标签，目标数据无标签"></a>源数据<strong>有</strong>标签，目标数据<strong>无</strong>标签</h2><h2 id="源数据无标签，目标数据无标签"><a href="#源数据无标签，目标数据无标签" class="headerlink" title="源数据无标签，目标数据无标签"></a>源数据<strong>无</strong>标签，目标数据<strong>无</strong>标签</h2><hr>
+<ol>
+<li>Yosinski J, Clune J, Bengio Y, et al. How transferable are features in deep neural networks?[J]. arXiv preprint arXiv:1411.1792, 2014.</li>
+</ol>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>李宏毅</tag>
+        <tag>Transfer-learning</tag>
       </tags>
   </entry>
   <entry>

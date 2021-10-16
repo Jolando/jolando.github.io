@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>common-methods-of-matplotlib</title>
+    <url>/common-methods-of-matplotlib.html</url>
+    <content><![CDATA[<p>本文创建子图的方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>], tight_layout=<span class="literal">True</span>)  </span><br><span class="line">ax = fig.subplots(<span class="number">2</span>, <span class="number">3</span>, sharex=<span class="literal">True</span>, sharey=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="标题-title"><a href="#标题-title" class="headerlink" title="标题 title"></a>标题 title</h1><h2 id="为每个子图设置一个标题"><a href="#为每个子图设置一个标题" class="headerlink" title="为每个子图设置一个标题"></a>为每个子图设置一个标题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax[i, j].set_title(<span class="string">&#x27;title&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="设置主标题"><a href="#设置主标题" class="headerlink" title="设置主标题"></a>设置主标题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig.suptitle(<span class="string">&#x27;suptitle&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="图例-legend"><a href="#图例-legend" class="headerlink" title="图例 legend"></a>图例 legend</h1><h2 id="为所有子图创建一个图例"><a href="#为所有子图创建一个图例" class="headerlink" title="为所有子图创建一个图例"></a>为所有子图创建一个图例</h2><p>使用matplotlib创建子图后，如果所有子图的图例都一样，可以使用<a href="https://www.delftstack.com/zh/howto/matplotlib/how-to-make-a-single-legend-for-all-subplots-in-matplotlib/">这篇文章</a>中提到的方法只显示一个图例。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">lines, labels = fig.axes[-<span class="number">1</span>].get_legend_handles_labels()    </span><br><span class="line">fig.legend(lines, labels, loc = <span class="string">&#x27;upper center&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="在图外显示图例"><a href="#在图外显示图例" class="headerlink" title="在图外显示图例"></a>在图外显示图例</h2><p>图例可以通过使用<code>bbox_to_anchor</code>放置在 Matplotlib 中的绘图之外。使用示例参考<a href="https://www.delftstack.com/zh/howto/matplotlib/how-to-place-legend-outside-of-the-plot-in-matplotlib/">这篇文章</a>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig.legend(bbox_to_anchor=(<span class="number">1.05</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>matplotlib</category>
+      </categories>
+      <tags>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>powershell中无法使用conda activate</title>
+    <url>/how-to-activate-conda-environment-from-powershell.html</url>
+    <content><![CDATA[<p>环境：win10</p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>powershell中无法使用conda activate</p>
+<span id="more"></span>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure>
+<p>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开终端时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --set auto_activate_base false</span><br></pre></td></tr></table></figure>
+
+<p>【参考资料】</p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/64149680/how-to-activate-conda-environment-from-powershell">How to activate conda environment from powershell?</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>powershell</tag>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>keras学习笔记一</title>
     <url>/learn-keras1.html</url>
     <content><![CDATA[<p>Tensorflow Version:  2.4.0</p>
@@ -27,30 +73,6 @@
       <tags>
         <tag>keras</tag>
         <tag>tensorflow</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>powershell中无法使用conda activate</title>
-    <url>/how-to-activate-conda-environment-from-powershell.html</url>
-    <content><![CDATA[<p>环境：win10</p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>powershell中无法使用conda activate</p>
-<span id="more"></span>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>cmd.exe</code>中运行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda init powershell</span><br></pre></td></tr></table></figure>
-<p>然后重启<code>powershell</code>，就可以使用<code>conda activate</code>激活环境了。<br><strong>注意</strong>：在打开终端时，conda会默认会自动激活，可以通过执行以下命令取消自动激活。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --set auto_activate_base false</span><br></pre></td></tr></table></figure>
-
-<p>【参考资料】</p>
-<ol>
-<li><a href="https://stackoverflow.com/questions/64149680/how-to-activate-conda-environment-from-powershell">How to activate conda environment from powershell?</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>powershell</tag>
-        <tag>conda</tag>
       </tags>
   </entry>
   <entry>
@@ -838,7 +860,7 @@ Parallel Scheduled Sampling: <a href="https://arxiv.org/abs/1906.04331">Parallel
     <content><![CDATA[<p>使用matplotlib绘制子图。<span id="more"></span></p>
 <h1 id="Figure-subplots"><a href="#Figure-subplots" class="headerlink" title="Figure.subplots"></a>Figure.subplots</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=[<span class="number">6.4</span>, <span class="number">4.8</span>])</span><br><span class="line">x = np.array(<span class="built_in">range</span>(-<span class="number">5</span>, <span class="number">6</span>))</span><br></pre></td></tr></table></figure>
 <h2 id="创建一行子图"><a href="#创建一行子图" class="headerlink" title="创建一行子图"></a>创建一行子图</h2><p>方式一：使用索引方式引用子图。这种方式适用于子图<strong>图形相同数据不同</strong>的情况。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = fig.subplots(<span class="number">1</span>, <span class="number">2</span>, sharey=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">      ax[i].plot(x, x**<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = fig.subplots(<span class="number">1</span>, <span class="number">2</span>, sharey=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>):</span><br><span class="line">    ax[i].plot(x, x**<span class="number">2</span>, label=i)  <span class="comment"># 绘制折线图</span></span><br><span class="line">    ax[i].legend()  <span class="comment"># 显示图例，画图时需要指定label</span></span><br><span class="line">    ax[i].set_xticks(x)  <span class="comment"># 设置x轴刻度</span></span><br></pre></td></tr></table></figure>
 <p>方式二：创建子图时对返回值进行解包。这种方式适用于子图<strong>图形不同</strong>的情况。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax1, ax2 = fig.subplots(<span class="number">1</span>, <span class="number">2</span>, sharey=<span class="literal">True</span>)</span><br><span class="line">ax1.plot(x, x**<span class="number">2</span>)</span><br><span class="line">ax2.scatter(x, x**<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 

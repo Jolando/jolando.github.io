@@ -56,7 +56,7 @@
 <span id="more"></span>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>使用pip安装：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install subword-nmt</span><br></pre></td></tr></table></figure>
-<p>从github安装：</p>
+<p>从github安装（推荐使用的方式）：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install https://github.com/rsennrich/subword-nmt/archive/master.zip</span><br></pre></td></tr></table></figure>
 <h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><p>使用以下命令将字节对编码应用于分词：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">subword-nmt learn-bpe -s &#123;num_operations&#125; &lt; &#123;train_file&#125; &gt; &#123;codes_file&#125;</span><br><span class="line">subword-nmt apply-bpe -c &#123;codes_file&#125; &lt; &#123;test_file&#125; &gt; &#123;out_file&#125;</span><br></pre></td></tr></table></figure>
@@ -68,9 +68,9 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -r &#x27;s/(@@ )|(@@ ?$)//g&#x27;</span><br></pre></td></tr></table></figure>
 
 <h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><ol>
-<li>BPE dropout<br><a href="https://arxiv.org/abs/1910.13267">BPE-Dropout: Simple and Effective Subword Regularization</a>在执行<code>subword-nmt apply-bpe</code>时使用参数<code>--dropout 0.1</code> 随机丢弃可能的合并。在训练语料库上这样做可以提高最终系统的质量；在测试时，使用没有<code>dropout</code>的<code>BPE</code>。为了获得可重现的结果，参数<code>--seed</code>可用于设置随机种子。</li>
+<li>BPE dropout<br>原始论文的作者在执行<code>subword-nmt apply-bpe</code>时使用参数<code>--dropout 0.1</code> 随机丢弃可能的合并。在训练语料库上这样做可以提高最终系统的质量；在测试时，使用没有<code>dropout</code>的<code>BPE</code>。为了获得可重现的结果，参数<code>--seed</code>可用于设置随机种子。</li>
 </ol>
-<p><strong>注意：</strong>在原始论文中，作者分别在每个新批次上使用了<code>BPE-Dropout</code>。您可以多次复制训练语料以获得相似的行为，从而获得同一句子的多个分词。<br>2. support for glossaries</p>
+<p><strong>注意：</strong>在原始论文中，作者分别在每个新批次上使用了<code>BPE-Dropout</code>。您可以多次复制训练语料以获得相似的行为，从而获得同一句子的多个分词。<br><code>BPE dropout</code>的其它实现：<br>    - YouTokenToMe – fastest bpe implementation<br>    - Sentencepiece – original subword regularization repository<br>    - BPE-Dropout –An official implementation of “BPE-Dropout” algorithm, introduced in <a href="https://arxiv.org/abs/1910.13267">BPE-Dropout: Simple and Effective Subword Regularization</a><br>2. support for glossaries</p>
 ]]></content>
       <categories>
         <category>深度学习</category>

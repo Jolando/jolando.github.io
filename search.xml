@@ -30,7 +30,7 @@
 <span id="more"></span>
 <h1 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h1><ol>
 <li>安装<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install jupyterlab</span><br></pre></td></tr></table></figure></li>
-<li>创建kernel<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加kernel</span></span><br><span class="line">conda activate tf2</span><br><span class="line">pip install ipykernel</span><br><span class="line">python -m ipykernel install --name tf2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看已安装的kernel</span></span><br><span class="line">jupyter kernelspec list</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除安装的kernel</span></span><br><span class="line">jupyter kernelspec remove kernelname</span><br></pre></td></tr></table></figure></li>
+<li>创建kernel<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加kernel</span></span><br><span class="line">conda activate tf2</span><br><span class="line">pip install ipykernel</span><br><span class="line">python -m ipykernel install --name tf2 --display-name tf2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看已安装的kernel</span></span><br><span class="line">jupyter kernelspec list</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除安装的kernel</span></span><br><span class="line">jupyter kernelspec remove kernelname</span><br></pre></td></tr></table></figure></li>
 <li>启动<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jupyter lab</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h1 id="修改配置信息"><a href="#修改配置信息" class="headerlink" title="修改配置信息"></a>修改配置信息</h1><ol>
@@ -47,6 +47,38 @@
       </categories>
       <tags>
         <tag>jupyterlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>subword-nmt使用方法</title>
+    <url>/document-of-subword-nmt.html</url>
+    <content><![CDATA[<p>项目地址：<a href="https://github.com/rsennrich/subword-nmt">subword-nmt</a></p>
+<span id="more"></span>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>使用pip安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install subword-nmt</span><br></pre></td></tr></table></figure>
+<p>从github安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install https://github.com/rsennrich/subword-nmt/archive/master.zip</span><br></pre></td></tr></table></figure>
+<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><p>使用以下命令将字节对编码应用于分词：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">subword-nmt learn-bpe -s &#123;num_operations&#125; &lt; &#123;train_file&#125; &gt; &#123;codes_file&#125;</span><br><span class="line">subword-nmt apply-bpe -c &#123;codes_file&#125; &lt; &#123;test_file&#125; &gt; &#123;out_file&#125;</span><br></pre></td></tr></table></figure>
+<p>使用<code>--min-frequency</code>参数指定用于合并的符号对的最小频率，默认为2。<br>使用<code>-v</code>参数打印合并过程中的日志。</p>
+<p>执行以下操作将稀有单词分割为字符<code>n-grams</code>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">subword-nmt get-vocab --train_file &#123;train_file&#125; --vocab_file &#123;vocab_file&#125;</span><br><span class="line">subword-nmt segment-char-ngrams --vocab &#123;vocab_file&#125; -n &#123;order&#125; --shortlist &#123;size&#125; &lt; &#123;test_file&#125; &gt; &#123;out_file&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行以下操作恢复原始分段:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -r &#x27;s/(@@ )|(@@ ?$)//g&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h1><ol>
+<li>BPE dropout<br><a href="https://arxiv.org/abs/1910.13267">BPE-Dropout: Simple and Effective Subword Regularization</a>在执行<code>subword-nmt apply-bpe</code>时使用参数<code>--dropout 0.1</code> 随机丢弃可能的合并。在训练语料库上这样做可以提高最终系统的质量；在测试时，使用没有<code>dropout</code>的<code>BPE</code>。为了获得可重现的结果，参数<code>--seed</code>可用于设置随机种子。</li>
+</ol>
+<p><strong>注意：</strong>在原始论文中，作者分别在每个新批次上使用了<code>BPE-Dropout</code>。您可以多次复制训练语料以获得相似的行为，从而获得同一句子的多个分词。<br>2. support for glossaries</p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+        <category>数据预处理</category>
+      </categories>
+      <tags>
+        <tag>子词</tag>
+        <tag>subword-nmt</tag>
       </tags>
   </entry>
   <entry>

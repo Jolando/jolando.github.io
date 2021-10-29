@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>matplotlib常用方法</title>
-    <url>/common-methods-of-matplotlib.html</url>
-    <content><![CDATA[<p>本文创建子图的方法：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>], tight_layout=<span class="literal">True</span>)  </span><br><span class="line">ax = fig.subplots(<span class="number">2</span>, <span class="number">3</span>, sharex=<span class="literal">True</span>, sharey=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h1 id="标题-title"><a href="#标题-title" class="headerlink" title="标题 title"></a>标题 title</h1><h2 id="为每个子图设置一个标题"><a href="#为每个子图设置一个标题" class="headerlink" title="为每个子图设置一个标题"></a>为每个子图设置一个标题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax[i, j].set_title(<span class="string">&#x27;title&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="设置主标题"><a href="#设置主标题" class="headerlink" title="设置主标题"></a>设置主标题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig.suptitle(<span class="string">&#x27;suptitle&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="图例-legend"><a href="#图例-legend" class="headerlink" title="图例 legend"></a>图例 legend</h1><h2 id="为所有子图创建一个图例"><a href="#为所有子图创建一个图例" class="headerlink" title="为所有子图创建一个图例"></a>为所有子图创建一个图例</h2><p>使用matplotlib创建子图后，如果所有子图的图例都一样，可以使用<a href="https://www.delftstack.com/zh/howto/matplotlib/how-to-make-a-single-legend-for-all-subplots-in-matplotlib/">这篇文章</a>中提到的方法只显示一个图例。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">lines, labels = fig.axes[-<span class="number">1</span>].get_legend_handles_labels()    </span><br><span class="line">fig.legend(lines, labels, loc = <span class="string">&#x27;upper center&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="在图外显示图例"><a href="#在图外显示图例" class="headerlink" title="在图外显示图例"></a>在图外显示图例</h2><p>图例可以通过使用<code>bbox_to_anchor</code>放置在 Matplotlib 中的绘图之外。使用示例参考<a href="https://www.delftstack.com/zh/howto/matplotlib/how-to-place-legend-outside-of-the-plot-in-matplotlib/">这篇文章</a>。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig.legend(bbox_to_anchor=(<span class="number">1.05</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>matplotlib</category>
-      </categories>
-      <tags>
-        <tag>matplotlib</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>jupyterlab使用文档</title>
     <url>/document-of-jupyterlab.html</url>
     <content><![CDATA[<p>Jupyterlab的编辑界面和jupyter notebook几乎没有区别，jupyter notebook支持的功能、快捷键在这里也都支持。jupyterlab的优势在于它增加了许多组件和更便捷的操作。</p>
@@ -47,6 +24,29 @@
       </categories>
       <tags>
         <tag>jupyterlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>matplotlib常用方法</title>
+    <url>/common-methods-of-matplotlib.html</url>
+    <content><![CDATA[<p>本文创建子图的方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=[<span class="number">8</span>, <span class="number">6</span>], tight_layout=<span class="literal">True</span>)  </span><br><span class="line">ax = fig.subplots(<span class="number">2</span>, <span class="number">3</span>, sharex=<span class="literal">True</span>, sharey=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h1 id="标题-title"><a href="#标题-title" class="headerlink" title="标题 title"></a>标题 title</h1><h2 id="为每个子图设置一个标题"><a href="#为每个子图设置一个标题" class="headerlink" title="为每个子图设置一个标题"></a>为每个子图设置一个标题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax[i, j].set_title(<span class="string">&#x27;title&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="设置主标题"><a href="#设置主标题" class="headerlink" title="设置主标题"></a>设置主标题</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig.suptitle(<span class="string">&#x27;suptitle&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="图例-legend"><a href="#图例-legend" class="headerlink" title="图例 legend"></a>图例 legend</h1><h2 id="为所有子图创建一个图例"><a href="#为所有子图创建一个图例" class="headerlink" title="为所有子图创建一个图例"></a>为所有子图创建一个图例</h2><p>使用matplotlib创建子图后，如果所有子图的图例都一样，可以使用<a href="https://www.delftstack.com/zh/howto/matplotlib/how-to-make-a-single-legend-for-all-subplots-in-matplotlib/">这篇文章</a>中提到的方法只显示一个图例。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">lines, labels = fig.axes[-<span class="number">1</span>].get_legend_handles_labels()    </span><br><span class="line">fig.legend(lines, labels, loc = <span class="string">&#x27;upper center&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="在图外显示图例"><a href="#在图外显示图例" class="headerlink" title="在图外显示图例"></a>在图外显示图例</h2><p>图例可以通过使用<code>bbox_to_anchor</code>放置在 Matplotlib 中的绘图之外。使用示例参考<a href="https://www.delftstack.com/zh/howto/matplotlib/how-to-place-legend-outside-of-the-plot-in-matplotlib/">这篇文章</a>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig.legend(bbox_to_anchor=(<span class="number">1.05</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>matplotlib</category>
+      </categories>
+      <tags>
+        <tag>matplotlib</tag>
       </tags>
   </entry>
   <entry>
@@ -863,6 +863,43 @@ Parallel Scheduled Sampling: <a href="https://arxiv.org/abs/1906.04331">Parallel
         <tag>tensorflow</tag>
         <tag>tensor</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Grammarly使用技巧</title>
+    <url>/tricks-of-grammarly.html</url>
+    <content><![CDATA[<p>Grammarly是一款在线语法纠正和校对工具。它能够检查单词拼写、纠正标点符号、修正语法错误、调整语气以及给出风格建议等；对学术写作来说，Grammarly还可以帮助查重。点击<a href="https://app.grammarly.com/">这里</a>开始使用。</p>
+<span id="more"></span>
+<h1 id="免费使用Grammarly"><a href="#免费使用Grammarly" class="headerlink" title="免费使用Grammarly"></a>免费使用Grammarly</h1><p>免费使用Grammarly Premium版本的方法：</p>
+<ol>
+<li>安装<a href="https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm">cookie editor插件</a></li>
+<li>去<a href="https://aceofhacking.com/grammarly-premium-account-cookies/">这里</a>复制有效的cookie。</li>
+<li>进入<a href="https://app.grammarly.com/">grammarly网站</a>，使用cookie editor插件修改cookie后刷新页面。如果cookie没有失效，页面会变成已登录状态，否则页面不会发生变化。</li>
+</ol>
+<p>详细方法参考<a href="https://www.bilibili.com/s/video/BV1MU4y1N7Tt">这里</a>。</p>
+]]></content>
+      <categories>
+        <category>论文写作</category>
+        <category>Grammarly</category>
+      </categories>
+      <tags>
+        <tag>Grammarly</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Word小技巧</title>
+    <url>/tricks-of-word.html</url>
+    <content><![CDATA[<p>Word使用小技巧。</p>
+<span id="more"></span>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>快速添加分割线的方法：</p>
+<ol>
+<li>直线<br> 连续使用键盘的【-】三次，然后使用回车键。</li>
+<li>波浪线<br> 连续使用键盘的【~】三次，然后使用回车键。</li>
+<li>虚线<br> 连续使用键盘的【*】三次，然后使用回车键。</li>
+<li>双直线<br> 连续使用键盘的【=】三次，然后使用回车键。</li>
+<li>中线粗、上下线细的线<br> 连续使用键盘的【#】三次，然后使用回车键</li>
+</ol>
+<p>详细内容参考<a href="https://zhuanlan.zhihu.com/p/38008691">Word小技巧-在文档中快速添加分割线</a>。</p>
+]]></content>
   </entry>
   <entry>
     <title>使用hexo搭建个人博客</title>
